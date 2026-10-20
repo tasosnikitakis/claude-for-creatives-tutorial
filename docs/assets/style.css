@@ -1,41 +1,43 @@
-/* Tokens — these mirror DESIGN.md at the repo root. Change them there first, then here. */
+/* Tokens — these mirror DESIGN.md at the repo root. Change them there first, then here.
+   Warm paper, near-black ink and one clay accent: an independent, unofficial palette. */
 :root {
-  --paper: #f6f7f4;
-  --paper-2: #ecefe8;
-  --ink: #1c2321;
-  --ink-2: #4a5451;
-  --line: #d3d9d2;
-  --blue: #244a73;
-  --blue-2: #e4ebf3;
-  --moss: #4f6b3d;
-  --moss-2: #e7eedf;
-  --clay: #8a3d2a;
-  --clay-2: #f3e3dd;
+  --paper: #faf9f5;
+  --paper-2: #f0eee6;
+  --ink: #141413;
+  --ink-2: #5e5d59;
+  --line: #e3dfd3;
+  --accent: #a94f2c;
+  --accent-2: #f5e6dc;
+  --olive: #55612f;
+  --olive-2: #ebecdc;
+  --amber: #7d5410;
+  --amber-2: #f6ecd6;
 
-  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --font-body: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-text: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-ui: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-code: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px; --s5: 24px;
   --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
 
   --measure: 68ch;
-  --radius: 6px;
+  --radius: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #15191a;
-    --paper-2: #1d2325;
-    --ink: #e8ebe6;
-    --ink-2: #aab3ae;
-    --line: #2f3a3c;
-    --blue: #9fc0e3;
-    --blue-2: #1f2d3b;
-    --moss: #a9c98f;
-    --moss-2: #233021;
-    --clay: #e3a28f;
-    --clay-2: #3a2621;
+    --paper: #262624;
+    --paper-2: #30302e;
+    --ink: #f5f4ee;
+    --ink-2: #bdbab0;
+    --line: #3e3e3a;
+    --accent: #e08a68;
+    --accent-2: #3a2a23;
+    --olive: #b3c08a;
+    --olive-2: #2c3022;
+    --amber: #e2b56a;
+    --amber-2: #3a3020;
   }
 }
 
@@ -45,14 +47,14 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-body);
+  font-family: var(--font-text);
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -108,7 +110,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .site-nav a.brand { border-left: 0; padding-left: 0; font-size: 1.15rem; }
 .site-nav a:hover { border-left-color: var(--line); }
-.site-nav a[aria-current="page"] { border-left-color: var(--blue); font-weight: 600; }
+.site-nav a[aria-current="page"] { border-left-color: var(--accent); font-weight: 600; }
 .site-nav .num { color: var(--ink-2); font-variant-numeric: tabular-nums; margin-right: var(--s2); }
 
 main {
@@ -118,7 +120,7 @@ main {
 .content { max-width: var(--measure); }
 
 /* ---------- Type ---------- */
-h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
 h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin: var(--s2) 0 var(--s5); }
 h2 { font-size: 1.6rem; margin: var(--s7) 0 var(--s3); }
 h3 { font-size: 1.2rem; margin: var(--s6) 0 var(--s2); }
@@ -157,32 +159,32 @@ th { font-weight: 600; }
   position: relative;
   margin: var(--s5) 0;
   padding: var(--s4) var(--s5) var(--s4) var(--s5);
-  background: var(--blue-2);
-  border-left: 4px solid var(--blue);
+  background: var(--accent-2);
+  border-left: 4px solid var(--accent);
   border-radius: 0 var(--radius) var(--radius) 0;
   font-family: var(--font-display);
   font-size: 1.05rem;
   line-height: 1.5;
 }
-.prompt .label { display: block; font-family: var(--font-body); font-size: 0.85rem; color: var(--ink-2); margin-bottom: var(--s2); }
+.prompt .label { display: block; font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-2); margin-bottom: var(--s2); }
 .prompt p { margin: 0; white-space: pre-line; }
 .prompt .copy {
   position: absolute; top: var(--s3); right: var(--s3);
-  font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+  font-family: var(--font-ui); font-size: 0.8rem; font-weight: 600;
   background: var(--paper); color: var(--ink); border: 1px solid var(--line);
   border-radius: 4px; padding: 3px 9px; cursor: pointer; min-height: 32px;
 }
-.prompt .copy:hover { border-color: var(--blue); }
+.prompt .copy:hover { border-color: var(--accent); }
 
 .exercise { border: 1px solid var(--line); border-radius: var(--radius); padding: var(--s4) var(--s5); margin: var(--s5) 0; }
 .exercise h2, .exercise h3 { margin-top: 0; }
 .exercise ol { padding-left: 1.3em; }
 
-.checkpoint { background: var(--moss-2); border-left: 4px solid var(--moss); border-radius: 0 var(--radius) var(--radius) 0; padding: var(--s4) var(--s5); margin: var(--s5) 0; }
+.checkpoint { background: var(--olive-2); border-left: 4px solid var(--olive); border-radius: 0 var(--radius) var(--radius) 0; padding: var(--s4) var(--s5); margin: var(--s5) 0; }
 .checkpoint h2, .checkpoint h3 { margin-top: 0; font-size: 1.1rem; }
 .checkpoint ul { margin: 0; padding-left: 1.2em; }
 
-.caution { background: var(--clay-2); border-left: 4px solid var(--clay); border-radius: 0 var(--radius) var(--radius) 0; padding: var(--s3) var(--s5); margin: var(--s5) 0; }
+.caution { background: var(--amber-2); border-left: 4px solid var(--amber); border-radius: 0 var(--radius) var(--radius) 0; padding: var(--s3) var(--s5); margin: var(--s5) 0; }
 .caution p { margin: 0; }
 
 .verified { color: var(--ink-2); font-size: 0.85rem; margin-top: var(--s7); }
@@ -209,3 +211,8 @@ th { font-weight: 600; }
 .pager .next { text-align: right; margin-left: auto; }
 
 footer.site-footer { color: var(--ink-2); font-size: 0.85rem; margin-top: var(--s8); }
+
+/* UI chrome stays in the sans; reading text stays in the serif. */
+.site-nav, .kicker, .lede, table, .prompt .label, .pager a span, .downloads span, .verified, small, .small, .objectives li, .checkpoint li { font-family: var(--font-ui); }
+.prompt { font-family: var(--font-text); }
+.site-nav { font-size: 0.95rem; }

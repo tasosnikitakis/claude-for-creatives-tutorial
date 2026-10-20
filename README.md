@@ -67,6 +67,10 @@ npx html-validate "docs/**/*.html"
 
 Human editorial control over everything published. Substantial AI generation disclosed to clients. No imitation of a named living creator's voice or style. Prompts and context files kept for every deliverable. Image-tool licences checked before commercial use.
 
+## Affiliation
+
+An independent tutorial, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic. The palette is warm and Claude-like in feel but uses no Anthropic logos, wordmarks or proprietary typefaces.
+
 ## Licence
 
 Content © the authors. Add a licence of your choice before making the repository public.
