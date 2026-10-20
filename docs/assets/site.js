@@ -16,6 +16,7 @@ const MODULES = [
 ];
 
 const EXTRAS = [
+  { file: "case-study.html", title: "Worked example: Lemonia Bakehouse" },
   { file: "templates.html", title: "Templates and downloads" },
   { file: "glossary.html",  title: "Glossary" },
   { file: "resources.html", title: "Resources" }

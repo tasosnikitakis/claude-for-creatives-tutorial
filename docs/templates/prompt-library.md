@@ -67,7 +67,7 @@ Rewrite CLAUDE.md for this project in under sixty lines. Sections: Project, Comm
 Using the brand-voice skill and content/microcopy-matrix.md, write copy for every state of the contact form: field labels, helper text, the success message, three error types (empty required field, invalid email, server failure), and the empty state for the message history. Return it as a table with a character count per line. Flag any line where you had to choose between two rules in the skill.
 
 **Create the editorial-qa helper**
-Create a read-only subagent called editorial-qa in .claude/agents/. It reviews any text I point it at against the brand-voice skill, content/microcopy-matrix.md and content/glossary.md, and reports: terminology errors, lines over their length limit, claims that need a source, and reading level. It must not edit files. Then run it on docs/contact.html and show me the report.
+Create a read-only subagent called editorial-qa in .claude/agents/. It reviews any text I point it at against the brand-voice skill, content/microcopy-matrix.md and content/glossary-el.md, and reports: terminology errors, lines over their length limit, claims that need a source, and reading level. It must not edit files. Then run it on docs/contact.html and show me the report.
 
 **Greek pass**
 Translate the contact-form copy to Greek using content/glossary-el.md and the Greek rules in the brand-voice skill. Put English and Greek side by side. Flag every line where the tone or idiom may not carry over and offer a transcreation. Mark the file as awaiting native review; do not publish it.

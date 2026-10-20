@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worked example: Lemonia Bakehouse — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="./">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Worked example</p>
+      <h1>Lemonia Bakehouse</h1>
+      <p class="lede">One fictional client, taken from brief to published bilingual website, using every module in order. The starter folder gives you the brief, brand notes, voice samples, research, menu and glossary; this page gives you the stages and the prompts.</p>
+
+      <section class="objectives">
+        <h2>By the end of this example you will have</h2>
+        <ul>
+          <li>A research synthesis, a brand-voice skill and three concept directions for a real-feeling brief.</li>
+          <li>A Greek-first, bilingual site with a menu, a pre-order page and a workshops page, built in a Code session.</li>
+          <li>The client handover set: CLAUDE.md, DESIGN.md, UX.md, the skill, a microcopy matrix, a review log and a runbook.</li>
+        </ul>
+      </section>
+
+      <p><strong>Lemonia, its owners, customers, interviews and reviews are invented for practice.</strong> Never publish the sample reviews as real ones; the Truthfulness row of the <a href="templates.html">rubric</a> applies here too.</p>
+
+      <h2>The client in one paragraph</h2>
+      <p>Lemonia is a small bakehouse and café near the sea in an Athens suburb, run by Eleni and her brother Nikos, the baker. Its website is a single outdated page with the wrong hours and no menu. Pre-orders for cakes arrive by phone, Instagram and WhatsApp, and some get lost. Saturday workshops sell out by word of mouth. Eleni wants a Greek and English site that "feels like my grandmother's kitchen, not a magazine". It needs visible prices, a reliable way to pre-order 48 hours ahead, and a workshops page. The deadline is Easter, and the budget is "a domain, nothing monthly".</p>
+
+      <h2>The starter folder</h2>
+      <ul class="downloads">
+        <li><a href="case-study/lemonia-starter.zip" download>lemonia-starter.zip</a><span>Everything below in one folder, plus the ux-reviewer and editorial-qa helpers, the <code>/new-page</code> skill and the review rubric, ready for the Code stages. Unzip it as <code>lemonia</code>.</span></li>
+        <li><a href="case-study/lemonia/brief.md">brief.md</a><span>The owner's brief, vague in the places real briefs are vague.</span></li>
+        <li><a href="case-study/lemonia/brand/brand-notes.md">brand/brand-notes.md</a><span>Logo, rough colours, type, photography rules, the owner's comments.</span></li>
+        <li><a href="case-study/lemonia/brand/voice-samples.md">brand/voice-samples.md</a><span>Five approved pieces of writing, Greek and English.</span></li>
+        <li><a href="case-study/lemonia/research/interviews.md">research/interviews.md</a><span>Six customer conversations.</span></li>
+        <li><a href="case-study/lemonia/research/reviews.md">research/reviews.md</a><span>Twenty customer comments.</span></li>
+        <li><a href="case-study/lemonia/content/menu.md">content/menu.md</a><span>Menu, prices, allergens, whole cakes and workshops, bilingual.</span></li>
+        <li><a href="case-study/lemonia/content/glossary-el.md">content/glossary-el.md</a><span>Agreed English → Greek terms and transcreation notes.</span></li>
+      </ul>
+      <p>Four stages have <a href="case-study/lemonia/reference/README.md">reference answers</a>. Open each only after your own attempt.</p>
+
+      <hr>
+
+      <h2>Stage 1 — Understand the client</h2>
+      <p class="small">Module 1 · Claude app · Project "Lemonia Bakehouse" with every starter file added as knowledge</p>
+      <p>Before you design anything, find out what the research says and what it does not. The brief has three open questions — Greek or English first, allergies on the form, a blog — and the research answers two of them.</p>
+      <div class="prompt">
+        <span class="label">Prompt: synthesis</span>
+        <p>Using interviews.md and reviews.md, identify the recurring themes. For each, give two verbatim quotes with their source (C1–C6 or R1–R20), count how many sources mention it, and say what it means for the website. List anything only one person said. Then answer the three open questions at the end of brief.md, saying how strong the evidence is for each answer. Tell me which theme you are least confident about.</p>
+      </div>
+      <p>Check every quote against the files. Then decide the open questions yourself — the synthesis informs your decision, it does not make it. Compare with <a href="case-study/lemonia/reference/synthesis-example.md">the reference synthesis</a>.</p>
+
+      <h2>Stage 2 — Capture the voice</h2>
+      <p class="small">Module 1 · Claude app, same Project</p>
+      <div class="prompt">
+        <span class="label">Prompt: brand-voice skill</span>
+        <p>Analyse the five pieces in voice-samples.md and the owner's notes beneath them. Write a Claude skill called brand-voice for Lemonia: audience, voice in two sentences, tone by context (menu, pre-order confirmation, sold out, closed, errors, workshops), terminology to use and avoid (check glossary-el.md), hard rules a writer can check, Greek formality, and three of the samples as examples. Lead with examples rather than adjectives.</p>
+      </div>
+      <p>Test it: in a new chat in the Project, ask for "a sold-out message for the leek pie" and "the error when someone picks a Monday for collection", without mentioning the voice. If either apologises or uses an exclamation mark, add the rule that would have stopped it. Compare with <a href="case-study/lemonia/reference/brand-voice-SKILL.md">the reference skill</a>.</p>
+
+      <h2>Stage 3 — Three directions for the home page</h2>
+      <p class="small">Module 2 · Claude Design · attach brief.md, menu.md and brand-notes.md</p>
+      <div class="prompt">
+        <span class="label">Prompt: concepts</span>
+        <p>Design the home page of Lemonia Bakehouse's website, mobile first, in three directions: "the menu board" (prices and today's bakes first), "the courtyard" (one large photo, the story, then the menu) and "the pre-order" (whole cakes and the 48-hour pre-order first). Goal: a visitor knows what is baked today, what it costs and when they are open within five seconds. Audience: neighbours aged 30–70 and summer visitors on phones. Content: from brief.md and menu.md. Art direction: like a grandmother's kitchen, not a magazine — whitewash, shutter green, kraft paper, an old-schoolbook serif, large readable text; no stock photos, no "Instagram café" styling. Use grey placeholders for photos and label them. Keep the copy identical across the three. Note one risk for each.</p>
+      </div>
+      <p>Choose one direction and write two sentences on why, as you would to the client. Iterate twice with canvas comments. Export the chosen home page as an image into the <code>lemonia</code> folder as <code>concept-home.png</code>.</p>
+
+      <h2>Stage 4 — Move into a Code session</h2>
+      <p class="small">Modules 3–4 · desktop app, Code tab, folder <code>lemonia</code></p>
+      <p>Open a Code session on the <code>lemonia</code> folder and set the mode selector to <strong>Plan</strong> before you paste the first prompt.</p>
+      <div class="prompt">
+        <span class="label">Prompt: plan the site</span>
+        <p>Read brief.md, menu.md, the synthesis decisions I paste below, and concept-home.png. Propose the site's pages, the file structure in docs/, and how Greek and English versions will be organised and linked. Hours must come from one place so they are never wrong again. Do not write code yet; list every decision you would be guessing at. Decisions: [paste your three answers from Stage 1].</p>
+      </div>
+      <p>When the plan makes sense, switch to Accept edits. Ask Claude to build only the home page and the menu page, in Greek and English. Then have it open them in the Browser pane and compare the home page with <code>concept-home.png</code> at 390px and 1440px.</p>
+
+      <h2>Stage 5 — Write the context files</h2>
+      <p class="small">Module 5 · Code session</p>
+      <p>First take version A of the Module 5 test, before any context file exists: <code>/clear</code>, ask for an "Our story" page from three lines of brief, and save a screenshot.</p>
+      <div class="prompt">
+        <span class="label">Prompt: DESIGN.md from brand notes</span>
+        <p>Turn brand/brand-notes.md into DESIGN.md: colours with exact values and one sentence on what each is for and when not to use it, type, spacing, components and layout. The notes give rough colours; adjust them as little as possible so every text pairing passes WCAG AA, and state each contrast ratio. The lemon yellow is never text and never large. Minimum body text 19px. Then refactor the two pages to use only these tokens and show me the diff.</p>
+      </div>
+      <div class="prompt">
+        <span class="label">Prompt: CLAUDE.md and UX.md</span>
+        <p>Write CLAUDE.md for this project in under sixty lines (Project, Commands, Design rules, Art direction, Workflow; three IMPORTANT rules). Then write UX.md from the synthesis: who the users are, the evidence, interaction standards (prices always visible, hours on every page, Greek first with a language switch, no pop-ups) and the glossary pointer. Copy my brand-voice skill into .claude/skills/brand-voice/SKILL.md.</p>
+      </div>
+      <p>Now take version B: <code>/clear</code>, give the same three lines of brief, and screenshot. Score A and B with runbooks/review-rubric.md. Compare your tokens with <a href="case-study/lemonia/reference/DESIGN.md">the reference DESIGN.md</a>.</p>
+
+      <h2>Stage 6 — The pre-order form, in two languages</h2>
+      <p class="small">Module 6 · Code session</p>
+      <p>This is the page the client cares most about: it fixes lost orders. It also contains the one genuinely technical decision in the project, below.</p>
+      <div class="prompt">
+        <span class="label">Prompt: every state</span>
+        <p>Create content/microcopy-matrix.md for Lemonia from the brand-voice skill. Then write every element and state of the pre-order form — title, intro, labels, helper text, the optional allergies field with the kitchen's exact traces note, button, sending, success, and errors for: nothing chosen, collection day under 48 hours, a Monday, the August closure, missing phone, and sending failed. Table with English, Greek from glossary-el.md marked "awaiting native review", and character counts. Flag any promise the client must confirm.</p>
+      </div>
+      <p>Run the editorial-qa helper on the result, then compare with <a href="case-study/lemonia/reference/microcopy-preorder.md">the reference microcopy</a>.</p>
+      <div class="caution"><p>A site on GitHub Pages cannot send email by itself. Ask Claude to set out the options — a link that opens a pre-filled email, or a free tier of a form service — with their limits and costs, and put the choice to the client. That trade-off is your call to present, not Claude's to make.</p></div>
+      <div class="prompt">
+        <span class="label">Prompt: how the form sends</span>
+        <p>This site is static and hosted on GitHub Pages, and the client wants nothing monthly. Explain, without building anything yet, the realistic ways the pre-order form can reach Eleni's inbox: what each needs, what it costs, what the customer sees, and what happens if it fails. Recommend one and say what I should ask the client before we choose.</p>
+      </div>
+
+      <h2>Stage 7 — Figma round-trip (optional)</h2>
+      <p class="small">Module 7 · Code session with the Figma connector</p>
+      <p>If you work in Figma: send the coded home page to Figma, adjust the hero for the Easter season (tsoureki and koulourakia first), and ask Claude to read the frame back and reconcile the code. Skip this stage if you do not use Figma; nothing later depends on it.</p>
+
+      <h2>Stage 8 — Workshops page through a gated workflow, then publish</h2>
+      <p class="small">Module 8 · Code session</p>
+      <div class="prompt">
+        <span class="label">Prompt: workshops via /new-page</span>
+        <p>/new-page Workshops page, Greek and English. Goal: someone can ask for a place, or ask for a place as a gift, for a specific date. Audience: locals and visitors; gift buyers who will send the link to someone else. Content: the workshops table in menu.md and voice sample 5. Each date gets its own shareable link. Places are confirmed by Eleni, so the action is "ask for a place", never "book".</p>
+      </div>
+      <p>Do not approve the first result. Redirect once, approve, then publish the site with GitHub Pages using the Module 8 publish prompt, and open it on your phone. Read the ux-reviewer report: anything it marks as a blocker or major is fixed before you show the client.</p>
+
+      <h2>Stage 9 — Review and hand over</h2>
+      <p class="small">Module 9</p>
+      <div class="prompt">
+        <span class="label">Prompt: handover</span>
+        <p>Score every page against runbooks/review-rubric.md and record the results in runbooks/review-log.md. Keep runbooks/ outside docs/ so none of it is published. Then write runbooks/lemonia-handover.md for the client in plain language: how to change the menu, the hours and the "in the oven" line by asking Claude; what was decided and why; what still needs her answer; and which Greek lines are awaiting native review. Mark anything you inferred rather than observed.</p>
+      </div>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>Every theme in your synthesis is backed by quotes you checked, and you made the three open decisions yourself.</li>
+          <li>The site shows prices without searching, the right hours on every page, and Greek first with a language switch.</li>
+          <li>The pre-order form has every state written in both languages, and the sending method is a choice you put to the client.</li>
+          <li>The <code>lemonia</code> folder holds CLAUDE.md, DESIGN.md, UX.md, the brand-voice skill, the microcopy matrix, a review log and a handover note.</li>
+        </ul>
+      </section>
+
+      <p class="verified">Last verified 20 October 2026. Lemonia Bakehouse is fictional; any resemblance to a real business is unintended.</p>
+    </article>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
