@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 2: Claude Design — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 2 of 9</p>
+      <h1>Claude Design: prompt to prototype</h1>
+      <p class="lede">A canvas paired with a conversation. Describe the goal, layout, content and audience; iterate on the canvas; export, share, or hand off to code.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Write a design brief Claude Design can act on using the goal / layout / content / audience formula.</li>
+          <li>Iterate through chat, direct edits and inline comments without restarting.</li>
+          <li>Know when a Claude Design concept is finished and should move to Claude Code.</li>
+        </ul>
+      </section>
+
+      <h2>What it is and where it lives</h2>
+      <p>Claude Design launched in April 2026 as an Anthropic Labs preview and has been generally available since October 2026 on every plan, including Free. It is now one of the templates you start an artifact from, so it works inside any chat, from the Artifacts tab, and from Claude Code. (The standalone page at claude.ai/design is being retired in December 2026.) Applying a design system — your colours, type and components — to everything it produces is reported to need a paid plan.</p>
+      <p>The flow, as Anthropic's Help Center describes it: start a design, attach a design system if you have one, add context (screenshots, brand assets, a codebase), describe what you want, review, then refine by chat, by editing directly on the canvas, or by leaving inline comments. When it is right, share a link, export (Canva keeps everything editable), or hand it to Claude Code for a real build.</p>
+
+      <h2>The brief formula</h2>
+      <p>Anthropic's own guidance for Claude Design prompts is four parts: <strong>goal, layout, content, audience.</strong> Add two more that a creative director always supplies and a model never guesses well:</p>
+      <ul>
+        <li><strong>Art direction</strong> — a clear aesthetic position and what to avoid. "Editorial, generous whitespace, one serif display face; not Inter, no purple gradients, no centred-everything hero."</li>
+        <li><strong>A check</strong> — what Claude should verify before it tells you it is done, or a request to ask you questions first.</li>
+      </ul>
+      <p>Vague prompts produce flat, interchangeable screens. NN/g's testing found that specificity, and attaching a real reference, narrowed the gap between AI output and a human designer's work more than anything else. Paste a screenshot of something you like. Say what you like about it.</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: onboarding flow</span>
+        <p>Mock up a 3-screen onboarding flow. Goal: first booking in under two minutes. Audience: busy small-business owners on their phones, often interrupted. Content: [paste bullets]. Layout: one action per screen, a visible progress indicator, no modal dialogs. Use the attached design system. Art direction: calm, confident, no illustration. Ask me three clarifying questions before you start.</p>
+      </div>
+
+      <div class="prompt">
+        <span class="label">Prompt: three directions</span>
+        <p>Give me three directions for the hero of this landing page — editorial, product-led, and testimonial-led — in the same brand system. Keep the copy identical in all three; vary only composition, scale and image treatment. Note one risk for each direction.</p>
+      </div>
+
+      <div class="prompt">
+        <span class="label">Prompt: one-pager</span>
+        <p>Design a one-page overview of [service]. Goal: a prospective client understands what we do and books a call. Audience: marketing managers who have never heard of us. Content: [headline, three benefits, one proof point, one call to action, contact details]. Layout: single column, readable at phone width, one accent colour. Art direction: [two sentences]. When you are done, list anything you invented that I should replace with real content.</p>
+      </div>
+
+      <h2>Iterating like a director</h2>
+      <p>Treat the first result as a first round from a junior designer: mostly right, wrong in instructive ways. Comment on the canvas the way you would mark up a printout — "this CTA competes with the nav", "the testimonial reads as decoration, give it a face and a name" — and let Claude revise. Direct edits are for small things you can fix faster than you can describe. Chat is for changes of direction.</p>
+      <p>Stop iterating in Claude Design when the concept is settled and the remaining work is production: real content, many pages, a live site. That is the hand-off point, and the next two modules get you ready for it.</p>
+
+      <section class="exercise">
+        <h2>Exercise: two deliverables</h2>
+        <ol>
+          <li>Make a one-pager for the business using the one-pager prompt. Attach a logo and two brand colours as context. Do at least two rounds of comments.</li>
+          <li>Make the 3-screen onboarding prototype. Answer the clarifying questions properly — this is where your experience shows.</li>
+          <li>Share both links with a colleague (or your partner) and ask for one honest criticism each. Fix it on the canvas.</li>
+          <li>Export the one-pager to Canva and make one edit there, so you know what the round-trip feels like.</li>
+        </ol>
+      </section>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>You can write a Claude Design brief with all six parts from memory.</li>
+          <li>Your one-pager uses the brand colours and typeface, not the model's defaults.</li>
+          <li>You can point at one thing in the result that is generic and say what instruction would have prevented it. Write that instruction down; it goes into your art-direction block in Module 5.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. Claude Design's plan availability and features changed several times in 2026; check <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">the Help Center article</a> before relying on a detail here.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

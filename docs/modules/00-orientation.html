@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 0: Orientation — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 0 of 9</p>
+      <h1>Orientation: the new creative stack</h1>
+      <p class="lede">What has changed in design and content work, where Claude fits, and the one idea the rest of this tutorial rests on.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Explain, in two sentences, how the designer's role is shifting and why that favours experienced creatives.</li>
+          <li>Name the three Claude surfaces and say which kind of work belongs in each.</li>
+          <li>Classify every step of one of your own projects as research, generation or judgement.</li>
+        </ul>
+      </section>
+
+      <h2>What changed</h2>
+      <p>Three things, and none of them is "designers are being replaced".</p>
+      <p><strong>Producing a decent-looking screen stopped being the hard part.</strong> Nielsen Norman Group's 2026 outlook says that as AI tools improve, almost anyone will be able to make a competent interface, so the value of a designer moves toward strategy, research and judgement. Designers whose whole job is assembling screens from a component library are the most exposed. Creative directors, by contrast, have always been paid for the part that just got more valuable.</p>
+      <p><strong>Adoption is high and trust is lower.</strong> Figma's 2026 survey of about 900 designers found that most now use generative AI and most say it improves their work, but only about a third felt in 2025 that they could rely on its output. Figma sells AI features, so read its numbers as a direction, not a measurement. The gap between "I use it" and "I trust it" is exactly the gap a review process closes — and building that process is what Modules 5, 6 and 8 are for.</p>
+      <p><strong>The deliverable is now the context, not the artifact.</strong> NN/g calls this "UX-context design": turning what a business knows about its users, its brand and its standards into files the AI reads before it generates anything. A voice guide that lives in a PDF nobody opens does nothing. The same guide, rewritten as a skill Claude loads automatically, shapes every line of copy it produces. Content designers describe the same shift as moving from writing individual strings to writing the rules that generate them.</p>
+
+      <h2>Two cautions worth keeping</h2>
+      <ul>
+        <li><strong>Generic output is the default.</strong> NN/g's own hands-on tests found AI-generated screens often look flat and interchangeable unless the prompt is specific or a real design file is attached. Anthropic's own frontend-design guidance exists precisely to steer away from what it calls "AI slop". Writing the art direction that prevents this is ordinary creative-director work, and you will do it in Module 5.</li>
+        <li><strong>Teams can now build faster than they can evaluate.</strong> NN/g describes a "custodial" problem: AI generates faster than UX can review, which creates debt someone has to clean up. The answer is to encode recurring problems as instructions so they are prevented, not corrected. In Claude terms that means CLAUDE.md, skills and hooks.</li>
+      </ul>
+
+      <h2>The three Claude surfaces</h2>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Surface</th><th>What it is</th><th>Use it for</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Claude app</strong> (chat, Projects, artifacts, skills, memory)</td><td>Conversation with persistent knowledge attached</td><td>Thinking, research synthesis, critique, one-off copy, building your brand-voice skill</td></tr>
+          <tr><td><strong>Claude Design</strong></td><td>A canvas paired with conversation; now built into artifacts on every plan</td><td>Concepts, decks, one-pagers, onboarding flows, "show me three directions"</td></tr>
+          <tr><td><strong>Claude Code</strong></td><td>An agent that reads your files, runs commands and edits a real project while you direct it</td><td>Real pages and sites, design systems, content systems, Figma hand-off, repeatable workflows, publishing</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The mental model that will serve you throughout: <strong>Claude Code is a junior studio team working from your brief.</strong> CLAUDE.md is the brief and the brand book. Plan mode is the concept review. The diff and the screenshot are what you sign off.</p>
+
+      <section class="exercise">
+        <h2>Exercise: audit one project</h2>
+        <ol>
+          <li>Pick a recent project you led. Write down its steps from first client conversation to delivery — ten to twenty lines in plain language.</li>
+          <li>Open Claude and paste the list with the prompt below.</li>
+          <li>Read the answer critically. Where do you disagree with its classification? Those disagreements are useful: they tell you where your judgement is doing work Claude cannot see.</li>
+          <li>Keep the result. You will return to it in Module 9 to design your studio playbook.</li>
+        </ol>
+      </section>
+
+      <div class="prompt">
+        <span class="label">Prompt</span>
+        <p>Here is my process for a recent project, step by step: [paste your list].
+
+Classify each step as research, generation or judgement. For each generation step, say which Claude surface — the Claude app, Claude Design or Claude Code — would help and what I would still have to check myself. For each judgement step, explain why a human gate is essential there. Finish with the three steps where AI would save me the most time, in order.</p>
+      </div>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>You have a classified process list saved in your notes file.</li>
+          <li>You can say which Claude surface you would reach for in each of three situations: a client wants to see three concept directions tomorrow; a site needs its twelve pages updated to a new brand; six interview transcripts need themes.</li>
+          <li>You can explain "context before code" to a colleague in one minute.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. Survey figures come from Figma and NN/g publications listed on the <a href="../resources.html">Resources</a> page.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

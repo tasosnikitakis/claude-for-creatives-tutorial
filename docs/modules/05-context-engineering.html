@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 5: Context engineering — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 5 of 9</p>
+      <h1>Context engineering</h1>
+      <p class="lede">The files that make every page come out on-brand: CLAUDE.md, DESIGN.md, UX.md, and the art-direction block that keeps Claude away from generic defaults.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Write a CLAUDE.md that reads like a studio brief and stays short enough to be obeyed.</li>
+          <li>Extract design tokens into a DESIGN.md with values <em>and</em> intent.</li>
+          <li>Write an art-direction block and prove, with a side-by-side test, that it changes the output.</li>
+        </ul>
+      </section>
+
+      <h2>Why this is the heart of the tutorial</h2>
+      <p>In Module 0 you met the idea that the context is now the deliverable. This is where it becomes concrete. Three files carry everything Claude needs to produce work in your system rather than its own:</p>
+      <ul>
+        <li><strong>CLAUDE.md</strong> — the project brief. Read at the start of every session. What the project is, how to preview it, the design rules, the workflow you expect.</li>
+        <li><strong>DESIGN.md</strong> — the design system as tokens: exact colours, type scale, spacing, radii, components — each with a sentence on what it is <em>for</em>. Google Labs open-sourced this format in 2026 and NN/g recommends it. The prose matters as much as the values: a model that knows "accent is for one call to action per view" will not paint a paragraph in it. Without a tokens file, models invent token names and forget values between sessions.</li>
+        <li><strong>UX.md</strong> — NN/g's proposed companion: research findings, interaction standards, a glossary, user models, domain rules. Everything a new designer on the team would need to be told.</li>
+      </ul>
+      <p>This site's own repository contains all three. Read them on the <a href="../templates.html">Templates</a> page before you write yours.</p>
+
+      <h2>CLAUDE.md: short, specific, pruned</h2>
+      <p>Anthropic is blunt about the failure mode: "Bloated CLAUDE.md files cause Claude to ignore your actual instructions!" Keep it well under two hundred lines. Put non-negotiables first and mark them. Write it as you would brief a new hire on day one, not as a policy manual. And prune it: whenever Claude ignores a rule, the fix is usually to cut something else rather than to add emphasis.</p>
+      <p>The file is checked into Git with the project, so it improves every time someone corrects it. Treat each correction you make in a session as a candidate line for CLAUDE.md.</p>
+
+      <h2>The art-direction block</h2>
+      <p>Anthropic's own frontend-design guidance names the defaults a model falls into when nobody tells it otherwise: overused fonts (Inter, Roboto, Arial, system fonts), clichéd palettes (purple gradients on white in particular), identical rounded cards with the same soft shadow, tracked-out capital labels above every heading, arrows appended to every link. These are not wrong; they are what you get when no creative director was in the room. You are the creative director. Write the block:</p>
+      <pre><code># Art direction
+Editorial and calm. Generous whitespace. One serif display face (Fraunces)
+paired with a humanist sans (Source Sans 3). One accent colour, used for a
+single call to action per view. Photography over illustration. Left-aligned
+text; no centred hero. No cards-for-everything, no gradient washes, no
+all-caps labels, no arrows on links. The memorable element on each page is
+one thing; everything else stays quiet.</code></pre>
+      <p>Install Anthropic's official <strong>frontend-design</strong> plugin too (type <code>/plugin</code> in Claude Code and search for it). It encodes the same discipline as a skill Claude loads when building interfaces. Your block tells it which direction to take; the plugin stops it taking the generic one.</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: extract tokens</span>
+        <p>Extract the design tokens from this site into DESIGN.md: colours, type scale, spacing, radii, shadows and the main components. Give exact values and, for each token, one sentence on when to use it and when not to. Then refactor index.html to use only those tokens and show me the diff.</p>
+      </div>
+
+      <div class="prompt">
+        <span class="label">Prompt: write the brief</span>
+        <p>Rewrite CLAUDE.md for this project in under sixty lines. Sections: Project, Commands, Design rules, Art direction, Workflow. Mark the three most important rules IMPORTANT. Use @DESIGN.md for tokens and the brand-voice skill for copy; do not repeat their contents. Ask me anything you cannot infer from the files.</p>
+      </div>
+
+      <section class="exercise">
+        <h2>Exercise: the A/B that proves it</h2>
+        <ol>
+          <li>In your <code>studio-site</code> project, run <code>/clear</code>, then ask Claude to build an "About" page from a five-line brief. Save a screenshot. This is version A: no context.</li>
+          <li>Write DESIGN.md with the extract-tokens prompt (use your Module 4 page as the source). Write your art-direction block into CLAUDE.md with the write-the-brief prompt. Install the frontend-design plugin.</li>
+          <li>Run <code>/clear</code> again and give the identical five-line brief. Save a screenshot. This is version B.</li>
+          <li>Score A and B against the rubric on the <a href="../templates.html">Templates</a> page. Write two sentences on what the context changed and one on what it still did not fix. That last sentence is your next CLAUDE.md line.</li>
+        </ol>
+      </section>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>CLAUDE.md is under sixty lines and you can name its three IMPORTANT rules.</li>
+          <li>DESIGN.md exists with values and intent, and your pages use only those tokens.</li>
+          <li>Your A/B screenshots show a visible difference that you can attribute to specific lines of context.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. The frontend-design plugin's name and installation route may change; <code>/plugin</code> in Claude Code shows what is currently available.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

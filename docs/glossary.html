@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="./">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Reference</p>
+      <h1>Glossary</h1>
+      <p class="lede">Developer terms as a designer needs them. Each entry says what the thing is and what it is for in this tutorial.</p>
+
+      <h2>Claude</h2>
+      <dl>
+        <dt><strong>Agent / agentic loop</strong></dt><dd>An AI that plans, acts (edits files, runs commands), checks its results and repeats. Claude Code is one. You direct it at the plan and the result.</dd>
+        <dt><strong>Artifact</strong></dt><dd>A live output beside a chat in the Claude app: a document, a piece of code, a design. Something you keep and edit rather than read once.</dd>
+        <dt><strong>Claude Design</strong></dt><dd>A design canvas inside artifacts. Conversation on one side, editable visuals on the other. For concepts, decks, prototypes.</dd>
+        <dt><strong>Claude Code</strong></dt><dd>Anthropic's agent for working in a real project: it reads and edits files, runs commands, and talks to tools like Figma and GitHub. Runs in a terminal or inside VS Code.</dd>
+        <dt><strong>CLAUDE.md</strong></dt><dd>The project brief Claude Code reads at the start of every session. Keep it short and specific.</dd>
+        <dt><strong>Context window</strong></dt><dd>Everything the model can see at once in a session. As it fills, quality drops. <code>/clear</code> empties it.</dd>
+        <dt><strong>Hook</strong></dt><dd>A small script that runs automatically at a set moment, such as after every edit. Guaranteed to run, unlike an instruction.</dd>
+        <dt><strong>MCP (Model Context Protocol)</strong></dt><dd>The standard way Claude connects to other tools: Figma, Notion, GitHub. The Figma MCP server lets Claude read designs and send code back to the canvas.</dd>
+        <dt><strong>Plan mode</strong></dt><dd>A state where Claude Code reads and proposes but changes nothing. Your concept review. <kbd>Shift</kbd>+<kbd>Tab</kbd>.</dd>
+        <dt><strong>Plugin</strong></dt><dd>An installable bundle of skills, hooks and MCP connections. Anthropic's frontend-design plugin is the one to install first.</dd>
+        <dt><strong>Project</strong></dt><dd>A workspace in the Claude app with knowledge files and instructions that every conversation inside it can use. One per client.</dd>
+        <dt><strong>Skill</strong></dt><dd>A short instruction file Claude loads when it is relevant or when you invoke it by name. Your brand voice, your workflows.</dd>
+        <dt><strong>Subagent</strong></dt><dd>A specialist helper with its own instructions and limited tools. A read-only reviewer is the typical one.</dd>
+      </dl>
+
+      <h2>Design context</h2>
+      <dl>
+        <dt><strong>Design tokens</strong></dt><dd>Named design values — colours, type sizes, spacing — used in code. The vocabulary that keeps a system consistent.</dd>
+        <dt><strong>DESIGN.md</strong></dt><dd>A file that lists the tokens with a sentence on what each is for, so an AI tool uses them correctly. A format Google Labs published in 2026.</dd>
+        <dt><strong>UX.md</strong></dt><dd>NN/g's proposed companion file: research findings, interaction standards, glossary, user models. What a new designer would need to be told.</dd>
+        <dt><strong>Heuristics (Nielsen's ten)</strong></dt><dd>A classic usability checklist: visibility of system status, user control, consistency, error prevention, and so on. The usability row of the rubric.</dd>
+        <dt><strong>WCAG 2.2 AA</strong></dt><dd>The accessibility standard most organisations target: contrast, text alternatives, keyboard access, focus visibility.</dd>
+        <dt><strong>Vibe coding / vibe design</strong></dt><dd>Building by describing intent and accepting what the AI produces, often without reading the code. Fine for throwaway exploration; not a process.</dd>
+      </dl>
+
+      <h2>Tooling</h2>
+      <dl>
+        <dt><strong>CLI / terminal</strong></dt><dd>A text box where you type commands. Claude Code types most of them for you; you need to be able to read them.</dd>
+        <dt><strong>VS Code</strong></dt><dd>A text editor that shows a project as a folder of files, with a terminal and the Claude Code panel built in.</dd>
+        <dt><strong>Repository (repo)</strong></dt><dd>A project folder with its full history, tracked by Git.</dd>
+        <dt><strong>Commit</strong></dt><dd>A saved snapshot of the project with a message saying what changed and why.</dd>
+        <dt><strong>Push</strong></dt><dd>Uploading your commits to GitHub.</dd>
+        <dt><strong>Branch</strong></dt><dd>A parallel copy of the project for trying something without touching the main version.</dd>
+        <dt><strong>Pull request</strong></dt><dd>A proposal to merge a branch into the main version, with a place to review and discuss it.</dd>
+        <dt><strong>Diff</strong></dt><dd>The exact before-and-after of a change. What you read before approving.</dd>
+        <dt><strong>GitHub Pages</strong></dt><dd>Free hosting of a folder in your repository as a public website. How this site is published.</dd>
+        <dt><strong>localhost / local preview</strong></dt><dd>A version of the site running on your own computer, at an address like <code>http://localhost:3000</code>, for checking before you publish.</dd>
+        <dt><strong>npm / Node.js</strong></dt><dd>Tools for running JavaScript and installing packages. Many web projects use them; Claude Code's installer does not need them.</dd>
+        <dt><strong>HTML / CSS / Tailwind / React</strong></dt><dd>The language of page structure; the language of its styling; a popular shortcut for writing CSS; a library for building interfaces from components. You will read these, not write them.</dd>
+      </dl>
+
+      <p class="verified">Last verified 20 October 2026.</p>
+    </article>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

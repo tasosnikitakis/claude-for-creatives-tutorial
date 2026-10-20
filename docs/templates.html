@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Templates and downloads — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="./">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Reference</p>
+      <h1>Templates and downloads</h1>
+      <p class="lede">The starter files the modules refer to. Each is a working example from this site's own repository, with placeholders where your business goes.</p>
+
+      <p>Download a file, put it where the path says, and edit it until it is yours. The shape is the point; the content must be your brand's.</p>
+
+      <ul class="downloads">
+        <li><a href="templates/CLAUDE.md" download>CLAUDE.md</a><span>Repository root. The project brief Claude Code reads every session. Module 5.</span></li>
+        <li><a href="templates/DESIGN.md" download>DESIGN.md</a><span>Repository root. Design tokens with values and intent. Module 5.</span></li>
+        <li><a href="templates/UX.md" download>UX.md</a><span>Repository root. Research findings, interaction standards, glossary, user models. Module 5.</span></li>
+        <li><a href="templates/brand-voice-SKILL.md" download>brand-voice SKILL.md</a><span>Save as <code>.claude/skills/brand-voice/SKILL.md</code>. Modules 1 and 6.</span></li>
+        <li><a href="templates/microcopy-matrix.md" download>microcopy-matrix.md</a><span>Save as <code>content/microcopy-matrix.md</code>. Module 6.</span></li>
+        <li><a href="templates/glossary-el.md" download>glossary-el.md</a><span>Save as <code>content/glossary-el.md</code>. English→Greek terms. Module 6.</span></li>
+        <li><a href="templates/ux-reviewer.md" download>ux-reviewer.md</a><span>Save as <code>.claude/agents/ux-reviewer.md</code>. Read-only reviewer. Module 8.</span></li>
+        <li><a href="templates/editorial-qa.md" download>editorial-qa.md</a><span>Save as <code>.claude/agents/editorial-qa.md</code>. Read-only copy checker. Module 6.</span></li>
+        <li><a href="templates/new-page-SKILL.md" download>new-page SKILL.md</a><span>Save as <code>.claude/skills/new-page/SKILL.md</code>. The gated build workflow. Module 8.</span></li>
+        <li><a href="templates/review-rubric.md" download>review-rubric.md</a><span>Save as <code>docs/runbooks/review-rubric.md</code>. Scoring sheet. Modules 5 and 9.</span></li>
+        <li><a href="templates/prompt-library.md" download>prompt-library.md</a><span>Every prompt in this tutorial, in one file to extend.</span></li>
+        <li><a href="templates/runbook-template.md" download>runbook-template.md</a><span>The six-part shape for documenting any workflow. Modules 8 and 9.</span></li>
+      </ul>
+
+      <h2>The CLAUDE.md this site uses</h2>
+      <pre><code># Project
+Tutorial site "Claude for creatives": static HTML in docs/, published with
+GitHub Pages from the main branch and the /docs folder. No build step.
+
+# Commands
+- Preview: `npx serve docs` (or VS Code Live Preview on docs/index.html)
+- Check:   `npx html-validate "docs/**/*.html"`
+
+# Design rules
+- IMPORTANT: use tokens from @DESIGN.md only; never invent colour, type or spacing values.
+- IMPORTANT: all copy follows the brand-voice skill. Sentence case. No exclamation marks.
+- IMPORTANT: every page works at 390px and 1440px; every image has meaningful alt text; contrast meets WCAG AA.
+- Links inside the site are relative (assets/style.css, ../index.html), never absolute.
+- Keep one memorable element per page (the prompt panels); everything else quiet.
+
+# Art direction
+Editorial and calm. Generous whitespace. Fraunces for headings, Source Sans 3
+for text. One blue accent, used for links and prompt panels only. Left-aligned.
+No cards-for-everything, no gradients, no all-caps labels, no arrows on links.
+
+# Workflow
+- Plan before changes that touch more than one file.
+- Show screenshots as evidence before saying a visual change is done.
+- Run the ux-reviewer subagent on any new or changed page before committing.
+- Commit after each approved change with a message that says what changed and why.</code></pre>
+
+      <h2>The brand-voice skill this site uses</h2>
+      <pre><code>---
+name: brand-voice
+description: Apply the "Claude for creatives" voice to any text on the tutorial site — lessons, prompts, labels, errors, README.
+---
+Audience: one experienced creative director, new to developer tooling. Address her as "you".
+
+Voice: plain, warm, confident. Explain, never sell. Respect her expertise;
+explain the tooling, not the craft.
+
+Tone by context:
+- Lesson prose: direct, concrete, example before abstraction.
+- Cautions: calm, factual, one sentence on what to do.
+- Checkpoints: short, testable statements.
+- Prompts: written as she would say them to a colleague; specific nouns, a check at the end.
+
+Terminology: "Claude app", "Claude Design", "Claude Code"; "skill", "subagent", "hook";
+"repository" (not "repo" on first use); "commit", "push". Avoid "leverage", "unlock", "supercharge", "seamless".
+
+Hard rules: sentence case everywhere. No exclamation marks. No all-caps labels.
+No "simply" or "just". Under 25 words per sentence where possible. British spelling.
+
+Before returning copy: check it against these rules and the length of the element it goes in.</code></pre>
+
+      <h2>The review rubric</h2>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Dimension</th><th>Pass means</th><th>Standard</th></tr></thead>
+        <tbody>
+          <tr><td>Brief fit</td><td>Goal, audience and call to action are met and nothing was invented to fill gaps</td><td>The brief</td></tr>
+          <tr><td>Brand consistency</td><td>Only DESIGN.md tokens; typefaces and colours on-system; no generic tells</td><td>DESIGN.md, art direction</td></tr>
+          <tr><td>Usability</td><td>No heuristic violations rated major or above</td><td>Nielsen's ten heuristics</td></tr>
+          <tr><td>Accessibility</td><td>AA contrast, semantic HTML, alt text, visible focus, keyboard order</td><td>WCAG 2.2 AA</td></tr>
+          <tr><td>Content</td><td>Voice and tone per state, terminology, length limits</td><td>brand-voice skill, microcopy matrix</td></tr>
+          <tr><td>Truthfulness</td><td>No invented facts, testimonials, statistics or sources</td><td>Editorial policy</td></tr>
+          <tr><td>Evidence</td><td>Screenshots and check output were supplied, not claimed</td><td>Verification habit</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p class="verified">Last verified 20 October 2026. File locations follow the Claude Code documentation; if a skill or subagent is not picked up, check the docs for the current path.</p>
+    </article>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

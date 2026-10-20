@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 8: Automated workflows and publishing — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 8 of 9</p>
+      <h1>Automated workflows and publishing</h1>
+      <p class="lede">Turn the steps you now repeat into a skill with built-in stop points, add a reviewer and a guaranteed check, and put the site on the internet with GitHub Pages.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Decide, for any task, whether it belongs in chat, on a canvas, with the agent, or in an automated workflow.</li>
+          <li>Build a <code>/new-page</code> skill that applies your system, runs review, and stops for your approval.</li>
+          <li>Add a hook that guarantees a check, and publish a site with GitHub Pages.</li>
+        </ul>
+      </section>
+
+      <h2>Chat, canvas, agent, or automation</h2>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Use</th><th>When</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Chat</strong></td><td>Exploring, thinking, one-off copy, critique</td><td>Claude app, inside a Project</td></tr>
+          <tr><td><strong>Canvas</strong></td><td>Visual exploration, decks, prototypes to share</td><td>Claude Design</td></tr>
+          <tr><td><strong>Agent</strong></td><td>Multi-file builds, applying a system across many pages, anything in a repository</td><td>Claude Code, plan mode first</td></tr>
+          <tr><td><strong>Automation</strong></td><td>The same steps every time, with checks you want guaranteed</td><td>Skills + subagents + hooks</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Anthropic's own advice on agents applies here: use the simplest workflow that works before reaching for autonomy. Automate a workflow only after you have run it by hand several times and know where it goes wrong — those are where the stop points go.</p>
+
+      <h2>Three mechanisms</h2>
+      <ul>
+        <li><strong>A skill</strong> (<code>.claude/skills/new-page/SKILL.md</code>) is a written procedure Claude follows when you type <code>/new-page</code>. It can call on your context files, run other steps, and — crucially — be told to stop and wait for you.</li>
+        <li><strong>A subagent</strong> (<code>.claude/agents/ux-reviewer.md</code>) is a specialist with its own instructions and limited tools. A read-only reviewer that checks Nielsen's heuristics, WCAG AA and the brand voice cannot break anything, and gives you a second opinion before you look.</li>
+        <li><strong>A hook</strong> is a small script that runs automatically at a set moment, such as after every file edit. Instructions in CLAUDE.md are advisory; Claude can forget them. A hook is deterministic; it always runs. Use hooks for the checks you refuse to skip.</li>
+      </ul>
+
+      <div class="prompt">
+        <span class="label">Prompt: the reviewer</span>
+        <p>Create a read-only subagent called ux-reviewer in .claude/agents/ with only Read, Grep and Glob tools. It reviews the files I name against Nielsen's ten usability heuristics, WCAG 2.2 AA (contrast, semantic HTML, alt text, keyboard focus order) and the brand-voice skill. It reports issues grouped by severity — blocker, major, minor — each with file and line, the criterion violated, and a proposed fix. It never edits.</p>
+      </div>
+
+      <div class="prompt">
+        <span class="label">Prompt: the guaranteed check</span>
+        <p>Add a hook that runs an HTML validation and accessibility check on any file in docs/ after every edit, and shows me the result. Explain where the hook lives, what event triggers it, and how I would turn it off. Use a tool that needs no sign-up.</p>
+      </div>
+      <p>The hook will land in <code>.claude/settings.json</code> and look roughly like this — the exact shape is in the <a href="https://code.claude.com/docs">Claude Code docs</a>, which is why the prompt asks Claude to explain what it wrote:</p>
+      <pre><code>{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "npx html-validate docs/**/*.html" }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+
+      <div class="prompt">
+        <span class="label">Prompt: the workflow skill</span>
+        <p>Create a skill called new-page. When I run /new-page with a brief, it: reads the brief; applies DESIGN.md, CLAUDE.md and the brand-voice skill; builds the page; starts the preview and takes screenshots at 390px and 1440px; runs the ux-reviewer subagent; shows me the screenshots and the review; then STOPS and waits for my approval before committing. Write the skill so each step is visible to me as it happens.</p>
+      </div>
+
+      <h2>Publishing with GitHub Pages</h2>
+      <p>GitHub Pages serves a folder of your repository as a website, free. This site is published from its <code>docs</code> folder. The steps, once the repository is on GitHub:</p>
+      <ol>
+        <li>On github.com open the repository, then Settings → Pages.</li>
+        <li>Under "Build and deployment" choose "Deploy from a branch", pick <code>main</code> and the <code>/docs</code> folder, and save.</li>
+        <li>Wait a minute or two. The page shows the public address when it is live.</li>
+        <li>Every push to <code>main</code> republishes automatically.</li>
+      </ol>
+      <p>Two details that save an hour of confusion: an empty file called <code>.nojekyll</code> in the docs folder stops GitHub from trying to process your files; and the site's address is <code>https://your-name.github.io/repository-name/</code>, so links inside the site must be relative (<code>assets/style.css</code>, not <code>/assets/style.css</code>).</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: publish</span>
+        <p>This site lives in docs/. Make sure docs/.nojekyll exists and every internal link is relative. Commit and push. Then walk me through enabling GitHub Pages from the main branch and the docs folder, one step at a time, and give me the address when it is live.</p>
+      </div>
+
+      <h2>Writing a workflow down</h2>
+      <p>Every skill you create is also documentation. Keep each one to the same shape so a colleague can read it: <strong>purpose · inputs</strong> (which context files) <strong>· steps · the human checkpoint · definition of done · a sample output.</strong> CLAUDE.md, the skills and the subagents live in the repository and compound: every correction makes the next run better.</p>
+
+      <section class="exercise">
+        <h2>Exercise: ship this tutorial</h2>
+        <ol>
+          <li>In the studio-site project, create the ux-reviewer subagent and the hook. Edit a page badly on purpose — remove an image's alt text — and watch the hook catch it.</li>
+          <li>Create the <code>/new-page</code> skill. Run it with a three-line brief for a "Services" page. Do not approve the first result; redirect once, then approve and let it commit.</li>
+          <li>Publish the site with GitHub Pages. Open it on your phone.</li>
+          <li>Write the workflow down in the six-part shape and save it as <code>docs/runbooks/new-page.md</code>.</li>
+        </ol>
+      </section>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>A hook ran without you asking, and you saw its output.</li>
+          <li><code>/new-page</code> builds, reviews, shows evidence and stops before committing.</li>
+          <li>A public URL shows your site, and you have opened it on a phone.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. Hook and skill file formats follow the Claude Code documentation; the example above is illustrative.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

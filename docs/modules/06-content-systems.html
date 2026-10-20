@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 6: Content systems in Claude Code — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 6 of 9</p>
+      <h1>Content systems in Claude Code</h1>
+      <p class="lede">Your voice skill moves into the codebase. A microcopy matrix generates every state; an editorial-QA helper checks it; a glossary-driven workflow handles Greek.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Install your brand-voice skill in a Claude Code project so it applies to every line of copy.</li>
+          <li>Generate and review a complete set of interface states from a microcopy matrix.</li>
+          <li>Run an English→Greek localisation workflow with a glossary and a native-review gate.</li>
+        </ul>
+      </section>
+
+      <h2>The skill, in the repository</h2>
+      <p>In Module 1 you wrote a brand-voice skill in the Claude app. In Claude Code a skill is a folder: <code>.claude/skills/brand-voice/SKILL.md</code>. The file starts with a name and a one-line description of when to apply it, then the rules. Claude loads it whenever copy is involved, or when you type <code>/brand-voice</code>. Because it lives in the repository, it is versioned, shared with anyone who clones the project, and improved by every correction you make.</p>
+      <p>The skill this site uses is on the <a href="../templates.html">Templates</a> page. Copy its shape, not its content.</p>
+
+      <h2>The microcopy matrix</h2>
+      <p>Interface copy is a system, not a pile of strings. Write the system down once as a matrix and let Claude fill it:</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>State</th><th>Tone</th><th>Length</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td>Success</td><td>Brief, warm</td><td>≤ 8 words</td><td>Name what happened; no exclamation marks</td></tr>
+          <tr><td>Error</td><td>Calm, directive</td><td>≤ 20 words</td><td>Say what went wrong and the next step; never blame, never apologise</td></tr>
+          <tr><td>Empty</td><td>Inviting</td><td>≤ 15 words</td><td>One action the person can take now</td></tr>
+          <tr><td>Loading</td><td>Neutral</td><td>≤ 5 words</td><td>Say what is loading</td></tr>
+          <tr><td>Confirmation</td><td>Plain</td><td>≤ 25 words</td><td>What will happen and what cannot be undone; button says the action, not "OK"</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Save it as <code>content/microcopy-matrix.md</code> in the project and reference it from the skill. Two rules from Anthropic's own design guidance are worth adding: a button says exactly what will happen ("Save changes", not "Submit"), and an action keeps the same name all the way through — the button that says "Publish" produces a message that says "Published".</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: every state of a form</span>
+        <p>Using the brand-voice skill and content/microcopy-matrix.md, write copy for every state of the contact form: field labels, helper text, the success message, three error types (empty required field, invalid email, server failure), and the empty state for the message history. Return it as a table with a character count per line. Flag any line where you had to choose between two rules in the skill.</p>
+      </div>
+
+      <h2>An editorial-QA helper</h2>
+      <p>A subagent is a specialist Claude Code can hand work to, with its own instructions and its own limits. An <code>editorial-qa</code> subagent that can only read files, never edit them, is a safe second pair of eyes: it checks terminology against the glossary, reading level, claims that need a source, length limits and the voice rules, and reports what it finds. You decide what changes.</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: create the helper</span>
+        <p>Create a read-only subagent called editorial-qa in .claude/agents/. It reviews any text I point it at against the brand-voice skill, content/microcopy-matrix.md and content/glossary.md, and reports: terminology errors, lines over their length limit, claims that need a source, and reading level. It must not edit files. Then run it on docs/contact.html and show me the report.</p>
+      </div>
+
+      <h2>Greek: draft with Claude, ship with a native reviewer</h2>
+      <p>Two facts shape the workflow. Published research treats Greek as a lower-resourced language where general models lag behind their English performance, and no solid benchmark exists for English→Greek interface copy. So Claude is the drafter and transcreator, never the final authority. The workflow:</p>
+      <ol>
+        <li>Keep a <code>content/glossary-el.md</code>: every product term with its agreed Greek form, grammatical notes, and the forms to avoid.</li>
+        <li>Add a Greek section to the brand-voice skill: formality (εσείς or εσύ), tone shifts, anything that does not translate.</li>
+        <li>Ask Claude to translate <em>and</em> to flag every line where idiom or tone might not carry, proposing a transcreation.</li>
+        <li>A native Greek reviewer signs off before anything is published. Build this as a stop in the workflow, not a hope.</li>
+      </ol>
+
+      <div class="prompt">
+        <span class="label">Prompt: Greek pass</span>
+        <p>Translate the contact-form copy to Greek using content/glossary-el.md and the Greek rules in the brand-voice skill. Put English and Greek side by side. Flag every line where the tone or idiom may not carry over and offer a transcreation. Mark the file as awaiting native review; do not publish it.</p>
+      </div>
+
+      <section class="exercise">
+        <h2>Exercise: a complete contact form, in two languages</h2>
+        <ol>
+          <li>Move your brand-voice skill into <code>.claude/skills/brand-voice/SKILL.md</code> in the studio-site project. Write the microcopy matrix and a starter glossary (ten terms is enough).</li>
+          <li>Run the every-state prompt. Review each line against the matrix yourself first, then run the editorial-qa helper and compare its findings with yours.</li>
+          <li>Run the Greek pass. Give the side-by-side to a native reviewer and record every correction in the glossary or the skill. The corrections are the valuable output.</li>
+          <li>Commit the skill, matrix, glossary and copy. These four files are now a content system any project can inherit.</li>
+        </ol>
+      </section>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>The brand-voice skill lives in the repository and copy comes out on-brand without being asked.</li>
+          <li>The editorial-qa helper exists, cannot edit, and caught at least one thing you missed (or you caught one it missed — either way, you know the difference now).</li>
+          <li>The Greek copy has been through a native reviewer and the glossary has grown as a result.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. Skill and subagent file formats follow the <a href="https://code.claude.com/docs">Claude Code documentation</a>; check it if a file is not picked up.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

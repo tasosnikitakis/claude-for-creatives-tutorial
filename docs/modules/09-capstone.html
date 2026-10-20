@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 9: Capstone — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 9 of 9</p>
+      <h1>Capstone: the studio playbook</h1>
+      <p class="lede">Run one complete project from brief to publication using everything you built, then write the runbook your studio will reuse on the next one.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Run a client-ready project end to end with Claude, with human gates at the right points.</li>
+          <li>Judge AI output with a rubric you can defend to a client.</li>
+          <li>State your studio's position on disclosure and originality in a paragraph.</li>
+        </ul>
+      </section>
+
+      <h2>The project</h2>
+      <p>Choose something real and small: a landing page for a new service, a three-page microsite, a campaign one-pager with its email. Real content, a real audience, a real deadline of about two weeks. The point is not the output; it is to feel where each tool belongs and where you belong.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Tool</th><th>Your gate</th></tr></thead>
+        <tbody>
+          <tr><td>Brief</td><td>Claude app: let it interview you, then write the brief</td><td>You approve the brief</td></tr>
+          <tr><td>Research synthesis</td><td>Claude app, Project with transcripts or reviews</td><td>Every theme checked against quotes</td></tr>
+          <tr><td>Concepts</td><td>Claude Design: three directions</td><td>You choose one and say why</td></tr>
+          <tr><td>Build</td><td>Claude Code: <code>/new-page</code> per page</td><td>Screenshots plus reviewer report, each page</td></tr>
+          <tr><td>Copy</td><td>Brand-voice skill, microcopy matrix, editorial-qa</td><td>You edit; native reviewer for Greek</td></tr>
+          <tr><td>Review</td><td>Rubric below</td><td>Nothing ships below "pass" on every row</td></tr>
+          <tr><td>Publish</td><td>GitHub Pages</td><td>Open on a phone before you tell anyone</td></tr>
+          <tr><td>Runbook</td><td>Claude Code writes the first draft from the session history</td><td>You correct it</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>The rubric</h2>
+      <p>Figma's 2026 report put the problem precisely: designers often cannot prove whether AI output is good or bad. A rubric is how you prove it. Score every page and every piece of copy before it goes anywhere.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Dimension</th><th>Check</th><th>Standard</th></tr></thead>
+        <tbody>
+          <tr><td>Brief fit</td><td>Goal, audience and call to action met</td><td>The brief</td></tr>
+          <tr><td>Brand consistency</td><td>Tokens only; type and colour on-system; nothing generic</td><td>DESIGN.md, art-direction block</td></tr>
+          <tr><td>Usability</td><td>Nielsen's ten heuristics</td><td>NN/g</td></tr>
+          <tr><td>Accessibility</td><td>AA contrast, semantic HTML, alt text, keyboard focus</td><td>WCAG 2.2</td></tr>
+          <tr><td>Content</td><td>Voice and tone per state, clarity, terminology, length</td><td>Brand-voice skill</td></tr>
+          <tr><td>Truthfulness</td><td>No invented facts, testimonials or statistics</td><td>Editorial policy</td></tr>
+          <tr><td>Evidence</td><td>Screenshots and check output supplied, not claimed</td><td>Verification habit</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>Disclosure and originality</h2>
+      <p>You will be asked, by clients and by your own conscience, how much of this was "done by AI". Have a position before you are asked. The legal floor, as it stands in late 2026: the EU AI Act's transparency rules (Article 50) have applied since August 2026. AI-generated text published to inform the public must be disclosed unless it has been through human review with someone holding editorial responsibility — which, if you run this playbook, it always has. Evidently creative work can be disclosed in a way that does not spoil it. The US Copyright Office's 2025 position is that AI assistance does not bar copyright in a human-authored work, but elements the machine decided are not protected. Writers' organisations ask for disclosure of substantial AI generation and treat imitating a named living creator's style as unethical.</p>
+      <p>A studio policy that meets all of that in five lines:</p>
+      <ol>
+        <li>A human holds editorial control over everything we publish.</li>
+        <li>We tell clients when AI generated a substantial part of a deliverable.</li>
+        <li>We never imitate a named living creator's voice or style.</li>
+        <li>We keep the prompts and context files for every client deliverable.</li>
+        <li>We check the licence of every image tool before commercial use.</li>
+      </ol>
+
+      <div class="prompt">
+        <span class="label">Prompt: the runbook</span>
+        <p>Read the session history and the files in .claude/. Write docs/runbooks/studio-playbook.md describing how this project was done: purpose, inputs (which context files), the steps in order, every point where I stopped to approve, the definition of done, and a sample output. Mark anything you inferred rather than observed, so I can correct it.</p>
+      </div>
+
+      <section class="exercise">
+        <h2>Exercise: the whole thing</h2>
+        <ol>
+          <li>Run the project through all eight stages. Do not skip the gates even when the output looks fine; the gates are the method.</li>
+          <li>Score the result against the rubric. Record scores in <code>docs/runbooks/review-log.md</code>.</li>
+          <li>Have Claude draft the runbook, then correct it. Add your disclosure policy to the repository README.</li>
+          <li>Go back to your Module 0 process audit. Rewrite it as it is now. The difference is what you learned.</li>
+        </ol>
+      </section>
+
+      <section class="checkpoint">
+        <h2>Checkpoint — and what comes next</h2>
+        <ul>
+          <li>A real deliverable is live, scored, and documented in a runbook you wrote.</li>
+          <li>Your repository holds CLAUDE.md, DESIGN.md, UX.md, a brand-voice skill, an editorial-qa and a ux-reviewer subagent, a hook, and a <code>/new-page</code> skill. That set is your studio's system. Copy it into the next project on day one.</li>
+          <li>Next: Anthropic Academy's free courses on skills, subagents and MCP go deeper on each mechanism; the <a href="../resources.html">Resources</a> page lists them.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. Legal positions summarised here come from the regulation text and legal commentary listed on the Resources page; this is not legal advice.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

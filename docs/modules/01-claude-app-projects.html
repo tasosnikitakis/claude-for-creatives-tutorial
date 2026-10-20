@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 1: Claude as creative partner — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 1 of 9</p>
+      <h1>Claude as creative partner: Projects and skills</h1>
+      <p class="lede">Build a Project around your brand, then turn five pieces of your best writing into a voice guide Claude applies automatically.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Set up a Claude Project with the right knowledge files and instructions for a client or product.</li>
+          <li>Run a research-synthesis conversation that cites its evidence and admits its uncertainty.</li>
+          <li>Reverse-engineer a voice-and-tone guide from real samples and package it as a skill.</li>
+        </ul>
+      </section>
+
+      <h2>Projects: one workspace per client</h2>
+      <p>A Project is a workspace whose knowledge files and instructions are available to every conversation inside it. Create one per client or product and add: the brand book, the voice guide (once you have written it, below), research summaries, a glossary of terms the client uses, and anything you find yourself re-explaining. Write project instructions the way you would brief a new hire: short, specific, with the non-negotiables first. One line that pays for itself immediately: "Always say which source a claim comes from."</p>
+      <p>Two habits make Projects work. Keep the knowledge files current — a stale brand book is worse than none, because Claude will apply it confidently. And start a fresh conversation for each distinct task; long, wandering chats degrade.</p>
+
+      <h2>Research synthesis you can trust</h2>
+      <p>Claude is good at finding patterns in transcripts, survey exports and support tickets. It is also capable of landing on the wrong takeaway with full confidence, which is why the prompt below demands quotes, flags outliers and asks for the model's own doubt. You verify every theme against the raw quotes before it goes into a deck.</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: themes from transcripts</span>
+        <p>Here are six interview transcripts. Identify the recurring themes. For each theme give two verbatim quotes with the transcript name, flag anything only one person said, and tell me which theme you are least confident about and why.</p>
+      </div>
+
+      <div class="prompt">
+        <span class="label">Prompt: user models from themes</span>
+        <p>From these themes, draft two user models. For each: goals, constraints, decision triggers, and the evidence lines that support each claim. No invented names, no stock imagery, no traits that are not in the data.</p>
+      </div>
+
+      <h2>A voice guide that actually gets used</h2>
+      <p>Most voice guides fail because they are lists of adjectives. "Warm but professional" means nothing to a model and little to a writer. The method that works — adapted from how content agencies now do it — is to reverse-engineer the guide from examples:</p>
+      <ol>
+        <li>Collect about five pieces you consider gold-standard for this brand. Mixed formats are fine: a landing page, an email, an error message, a social post.</li>
+        <li>Give Claude a one- or two-page template to fill (voice principles, tone by context, terminology, reading level, do/don't examples).</li>
+        <li>Make the tone rules conditional: "if the user has just hit an error, be calm and name the next step; never apologise, never blame."</li>
+        <li>Add hard rules a model can check: sentence case for buttons, no exclamation marks in errors, forbidden words, length limits.</li>
+        <li>Turn the result into a <strong>skill</strong> — a short instruction file with a one-line description of when to apply it. Skills load automatically when they are relevant, in the Claude app and later in Claude Code, so the guide becomes mandatory context rather than optional reading.</li>
+      </ol>
+
+      <div class="prompt">
+        <span class="label">Prompt: reverse-engineer the voice</span>
+        <p>Analyse these five pieces of our writing. Extract voice principles, tone-by-context rules (success, error, empty state, marketing, support), terminology we use and avoid, the reading level, and three do/don't example pairs. Fill this template: [paste template]. Lead with examples rather than adjectives. Then rewrite the result as a Claude skill: a short file with a name, a one-line description that says when to apply it, and the rules in the order a writer would check them.</p>
+      </div>
+
+      <p>The skill this site's own repository uses is on the <a href="../templates.html">Templates</a> page. Read it as a worked example, then write yours — it will be different, because your brand is.</p>
+
+      <section class="exercise">
+        <h2>Exercise: Project plus skill</h2>
+        <ol>
+          <li>Create a Project for one real client or for the family business. Add the brand book and a glossary. Write instructions of no more than ten lines.</li>
+          <li>Run the voice prompt on five real samples. Edit the output hard: cut anything you would not say to a writer in a briefing.</li>
+          <li>Save the result as a skill. Test it: in a new conversation, ask for a 40-word error message and a 120-word welcome email without mentioning the voice. Both should sound like the brand.</li>
+          <li>If one does not, the skill is missing a rule. Add it. This loop — generate, judge, fix the rule — is the whole discipline of this tutorial.</li>
+        </ol>
+      </section>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>A Project exists with at least three knowledge files and short instructions.</li>
+          <li>Your brand-voice skill produces on-brand copy for two different states without being reminded.</li>
+          <li>You have run a synthesis prompt on real material and checked every theme against its quotes.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. How Projects and skills appear in the Claude app changes over time; the <a href="https://support.claude.com">Claude Help Center</a> has current steps.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 7: Figma round-trip with MCP — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root="../">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="../index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Module 7 of 9</p>
+      <h1>Figma round-trip with MCP</h1>
+      <p class="lede">Connect Figma to Claude Code so a frame becomes a coded page, and a coded page becomes editable frames on the canvas. Optional if you don't work in Figma; valuable if your clients do.</p>
+
+      <section class="objectives">
+        <h2>By the end of this module you can</h2>
+        <ul>
+          <li>Explain what MCP is and why it matters for designers in one paragraph.</li>
+          <li>Connect the Figma MCP server to Claude Code and implement a frame from it.</li>
+          <li>Send a coded interface back to Figma and continue exploring on the canvas.</li>
+        </ul>
+      </section>
+
+      <h2>MCP in one paragraph</h2>
+      <p>MCP — the Model Context Protocol — is a standard way for Claude to connect to other tools. Instead of you copying things between apps, Claude can read from and write to them directly: a Figma file, a Notion workspace, GitHub. For design work the Figma connection is the important one, because it lets Claude read the real structure of a design — components, tokens, layout — rather than squinting at a screenshot, and NN/g's testing found that giving the model a real Figma frame produced the most faithful results.</p>
+
+      <h2>Figma → Claude Code</h2>
+      <p>Two ways to connect; the first is simplest:</p>
+      <pre><code># Option A: the official plugin
+claude plugin install figma@claude-plugins-official
+
+# Option B: add the remote server directly
+claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
+      <p>Then type <code>/mcp</code> in Claude Code and authenticate with Figma in the browser when prompted. Figma recommends its remote server for the fullest feature set. Reading design context is reported to work on any Figma plan.</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: implement a frame</span>
+        <p>Use the Figma MCP to read this frame: [paste link]. Implement it as a section of index.html using only our DESIGN.md tokens and existing components; where the frame uses a value we do not have, use the nearest token and tell me. Screenshot the result at 1440px, compare it to the frame, and list the differences.</p>
+      </div>
+
+      <h2>Claude Code → Figma</h2>
+      <p>Since February 2026, Figma's "Code to Canvas" lets Claude Code send a running interface into Figma as editable frames. Once connected, the instruction is simply "Send this to Figma". This direction needs the remote MCP server, and writing into an existing file needs a Figma Full seat with edit access. Early adopters reported the capability sometimes not appearing in a session; if that happens, reconnect with <code>/mcp</code> and try again before assuming it is unavailable.</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: back to the canvas</span>
+        <p>Send the hero section we just built to Figma as a new page called "Hero — coded v1". Then tell me what came across as editable layers and what came across as flattened, so I know what I can change on the canvas.</p>
+      </div>
+
+      <h2>When to go which way</h2>
+      <ul>
+        <li><strong>Figma → code</strong> when the client's design is already in Figma and the job is faithful implementation.</li>
+        <li><strong>Code → Figma</strong> when you explored quickly in Claude Design or Claude Code and now want to iterate visually, present to a client in the tool they know, or hand to another designer.</li>
+        <li><strong>Neither</strong> for small sites you own end to end. Claude Design plus Claude Code is a complete loop; Figma adds a seat and a step.</li>
+      </ul>
+
+      <section class="exercise">
+        <h2>Exercise: one section, both ways</h2>
+        <ol>
+          <li>Connect the Figma MCP and confirm with <code>/mcp</code> that it is listed and authenticated.</li>
+          <li>Pick a hero section in a Figma file you can edit. Run the implement-a-frame prompt. Judge the screenshot comparison yourself before reading Claude's list.</li>
+          <li>Run the back-to-the-canvas prompt. In Figma, make two changes to the imported frames.</li>
+          <li>Ask Claude to read the updated frame and reconcile the code with it. You have completed a round trip.</li>
+        </ol>
+      </section>
+
+      <section class="checkpoint">
+        <h2>Checkpoint</h2>
+        <ul>
+          <li>The Figma MCP is connected and you have implemented one frame with tokens, not guessed values.</li>
+          <li>You have sent a coded section to Figma and edited it there.</li>
+          <li>You can say, for your own work, which direction you will use most and why.</li>
+        </ul>
+      </section>
+
+      <nav class="pager" id="pager" aria-label="Previous and next"></nav>
+      <p class="verified">Last verified 20 October 2026. Figma plan requirements for the MCP server and Code to Canvas come from Figma's documentation and community reports; confirm on figma.com before relying on them.</p>
+    </article>
+  </main>
+</div>
+<script src="../assets/site.js"></script>
+</body>
+</html>
