@@ -23,12 +23,12 @@
         <dt><strong>Agent / agentic loop</strong></dt><dd>An AI that plans, acts (edits files, runs commands), checks its results and repeats. Claude Code is one. You direct it at the plan and the result.</dd>
         <dt><strong>Artifact</strong></dt><dd>A live output beside a chat in the Claude app: a document, a piece of code, a design. Something you keep and edit rather than read once.</dd>
         <dt><strong>Claude Design</strong></dt><dd>A design canvas inside artifacts. Conversation on one side, editable visuals on the other. For concepts, decks, prototypes.</dd>
-        <dt><strong>Claude Code</strong></dt><dd>Anthropic's agent for working in a real project: it reads and edits files, runs commands, and talks to tools like Figma and GitHub. Runs in a terminal or inside VS Code.</dd>
+        <dt><strong>Claude Code</strong></dt><dd>Anthropic's agent for working in a real project: it reads and edits files, runs commands, and talks to tools like Figma and GitHub. In this tutorial you use it in the Code tab of the Claude desktop app.</dd>
         <dt><strong>CLAUDE.md</strong></dt><dd>The project brief Claude Code reads at the start of every session. Keep it short and specific.</dd>
         <dt><strong>Context window</strong></dt><dd>Everything the model can see at once in a session. As it fills, quality drops. <code>/clear</code> empties it.</dd>
         <dt><strong>Hook</strong></dt><dd>A small script that runs automatically at a set moment, such as after every edit. Guaranteed to run, unlike an instruction.</dd>
         <dt><strong>MCP (Model Context Protocol)</strong></dt><dd>The standard way Claude connects to other tools: Figma, Notion, GitHub. The Figma MCP server lets Claude read designs and send code back to the canvas.</dd>
-        <dt><strong>Plan mode</strong></dt><dd>A state where Claude Code reads and proposes but changes nothing. Your concept review. <kbd>Shift</kbd>+<kbd>Tab</kbd>.</dd>
+        <dt><strong>Plan mode</strong></dt><dd>A state where Claude Code reads and proposes but changes nothing. Your concept review. Chosen in the mode selector under the prompt box.</dd>
         <dt><strong>Plugin</strong></dt><dd>An installable bundle of skills, hooks and MCP connections. Anthropic's frontend-design plugin is the one to install first.</dd>
         <dt><strong>Project</strong></dt><dd>A workspace in the Claude app with knowledge files and instructions that every conversation inside it can use. One per client.</dd>
         <dt><strong>Skill</strong></dt><dd>A short instruction file Claude loads when it is relevant or when you invoke it by name. Your brand voice, your workflows.</dd>
@@ -47,8 +47,12 @@
 
       <h2>Tooling</h2>
       <dl>
-        <dt><strong>CLI / terminal</strong></dt><dd>A text box where you type commands. Claude Code types most of them for you; you need to be able to read them.</dd>
-        <dt><strong>VS Code</strong></dt><dd>A text editor that shows a project as a folder of files, with a terminal and the Claude Code panel built in.</dd>
+        <dt><strong>Code tab / session</strong></dt><dd>The part of the Claude desktop app where Claude Code works. Each conversation there is a session, attached to one folder on your computer.</dd>
+        <dt><strong>Changes panel</strong></dt><dd>The desktop app's view of every edit Claude made, line by line. You can comment on any line.</dd>
+        <dt><strong>Browser pane</strong></dt><dd>A preview inside the desktop app where your page opens and where Claude takes screenshots to check its work.</dd>
+        <dt><strong>Mode selector</strong></dt><dd>The control under the prompt box: Manual, Accept edits, Plan, Auto. It decides how much Claude does before asking you.</dd>
+        <dt><strong>Command / CLI / terminal</strong></dt><dd>A typed instruction to the computer, and the text window developers type them in. Claude runs commands for you and, in Manual mode, shows each one first; you never need to open a terminal yourself.</dd>
+        <dt><strong>GitHub CLI (<code>gh</code>)</strong></dt><dd>A small program you install once so Claude can create repositories and publish on GitHub for you.</dd>
         <dt><strong>Repository (repo)</strong></dt><dd>A project folder with its full history, tracked by Git.</dd>
         <dt><strong>Commit</strong></dt><dd>A saved snapshot of the project with a message saying what changed and why.</dd>
         <dt><strong>Push</strong></dt><dd>Uploading your commits to GitHub.</dd>

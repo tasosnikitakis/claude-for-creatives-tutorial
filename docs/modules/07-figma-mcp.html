@@ -31,13 +31,8 @@
       <p>MCP — the Model Context Protocol — is a standard way for Claude to connect to other tools. Instead of you copying things between apps, Claude can read from and write to them directly: a Figma file, a Notion workspace, GitHub. For design work the Figma connection is the important one, because it lets Claude read the real structure of a design — components, tokens, layout — rather than squinting at a screenshot, and NN/g's testing found that giving the model a real Figma frame produced the most faithful results.</p>
 
       <h2>Figma → Claude Code</h2>
-      <p>Two ways to connect; the first is simplest:</p>
-      <pre><code># Option A: the official plugin
-claude plugin install figma@claude-plugins-official
-
-# Option B: add the remote server directly
-claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
-      <p>Then type <code>/mcp</code> in Claude Code and authenticate with Figma in the browser when prompted. Figma recommends its remote server for the fullest feature set. Reading design context is reported to work on any Figma plan.</p>
+      <p>In a Code session, click <strong>+</strong> under the prompt box and choose <strong>Add connectors</strong> (connectors are MCP servers with a sign-in flow). Find Figma, connect it, and sign in to Figma in the browser when asked. If Figma is not listed there, choose <strong>Add plugins</strong> instead and install the official Figma plugin, which brings the connection with it. Or ask Claude: "Connect the Figma MCP server to this project and walk me through signing in."</p>
+      <p>Figma recommends its remote server for the fullest feature set. Reading design context is reported to work on any Figma plan.</p>
 
       <div class="prompt">
         <span class="label">Prompt: implement a frame</span>
@@ -45,7 +40,7 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
       </div>
 
       <h2>Claude Code → Figma</h2>
-      <p>Since February 2026, Figma's "Code to Canvas" lets Claude Code send a running interface into Figma as editable frames. Once connected, the instruction is simply "Send this to Figma". This direction needs the remote MCP server, and writing into an existing file needs a Figma Full seat with edit access. Early adopters reported the capability sometimes not appearing in a session; if that happens, reconnect with <code>/mcp</code> and try again before assuming it is unavailable.</p>
+      <p>Since February 2026, Figma's "Code to Canvas" lets Claude Code send a running interface into Figma as editable frames. Once connected, the instruction is simply "Send this to Figma". This direction needs the remote MCP server, and writing into an existing file needs a Figma Full seat with edit access. Early adopters reported the capability sometimes not appearing in a session; if that happens, reconnect Figma from <strong>+</strong> → connectors and try again before assuming it is unavailable.</p>
 
       <div class="prompt">
         <span class="label">Prompt: back to the canvas</span>
@@ -62,7 +57,7 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp</code></pre>
       <section class="exercise">
         <h2>Exercise: one section, both ways</h2>
         <ol>
-          <li>Connect the Figma MCP and confirm with <code>/mcp</code> that it is listed and authenticated.</li>
+          <li>Connect Figma and confirm it is listed and signed in: ask Claude "Which connectors can you use in this session?"</li>
           <li>Pick a hero section in a Figma file you can edit. Run the implement-a-frame prompt. Judge the screenshot comparison yourself before reading Claude's list.</li>
           <li>Run the back-to-the-canvas prompt. In Figma, make two changes to the imported frames.</li>
           <li>Ask Claude to read the updated frame and reconcile the code with it. You have completed a round trip.</li>

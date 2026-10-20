@@ -6,7 +6,7 @@ const MODULES = [
   { file: "modules/00-orientation.html",        title: "Orientation: the new creative stack" },
   { file: "modules/01-claude-app-projects.html", title: "Claude as creative partner: Projects and skills" },
   { file: "modules/02-claude-design.html",      title: "Claude Design: prompt to prototype" },
-  { file: "modules/03-tooling.html",            title: "Developer tooling without fear" },
+  { file: "modules/03-tooling.html",            title: "Your studio in the desktop app" },
   { file: "modules/04-claude-code.html",        title: "Claude Code fundamentals" },
   { file: "modules/05-context-engineering.html", title: "Context engineering" },
   { file: "modules/06-content-systems.html",    title: "Content systems in Claude Code" },

@@ -43,11 +43,12 @@
       <table>
         <thead><tr><th>Control</th><th>What it does</th><th>When</th></tr></thead>
         <tbody>
-          <tr><td><strong>Plan mode</strong> — press <kbd>Shift</kbd>+<kbd>Tab</kbd> until "plan mode on" shows</td><td>Claude reads and proposes but changes nothing</td><td>Anything touching more than one file. Skip it only when you could describe the change in a single sentence.</td></tr>
-          <tr><td><strong>Permission mode</strong></td><td>Manual asks before every edit; auto proceeds, with a safety check on risky actions</td><td>Start in manual. Switch to auto for a workflow once you have watched it succeed a few times.</td></tr>
+          <tr><td><strong>Plan</strong> — in the mode selector under the prompt box</td><td>Claude reads and proposes but changes nothing</td><td>Anything touching more than one file. Skip it only when you could describe the change in a single sentence.</td></tr>
+          <tr><td><strong>Manual</strong> / <strong>Accept edits</strong> / <strong>Auto</strong> — same selector</td><td>Manual asks before every edit and command; Accept edits lets file changes through but still asks about commands; Auto proceeds, with a background safety check</td><td>Start in Manual. Move to Accept edits after a plan you approved. Use Auto only for a workflow you have watched succeed several times.</td></tr>
+          <tr><td><strong>Changes</strong> panel</td><td>Every edit, line by line; you can comment on any line and send all comments at once</td><td>After every change, before you say "commit". Commenting on a line is the fastest way to give precise feedback.</td></tr>
           <tr><td><code>/init</code></td><td>Writes a starter CLAUDE.md for the project</td><td>Once, when you open a new project. You will rewrite it in Module 5.</td></tr>
           <tr><td><code>/clear</code></td><td>Empties the conversation's memory of the current session</td><td>Between unrelated tasks. A full context is the main reason output gets worse over a long session.</td></tr>
-          <tr><td><code>@filename</code></td><td>Points Claude at a specific file</td><td>Whenever you mean a particular file; it saves Claude guessing.</td></tr>
+          <tr><td><code>@file</code> — type <code>@</code> and a file name</td><td>Points Claude at a specific file</td><td>Whenever you mean a particular file; it saves Claude guessing.</td></tr>
           <tr><td><strong>Paste an image</strong></td><td>Gives Claude a screenshot or reference to look at</td><td>Always, for visual work. "Match this" beats any adjective.</td></tr>
         </tbody>
       </table>
@@ -55,6 +56,10 @@
 
       <h2>Evidence, not claims</h2>
       <p>The single habit that separates good Claude Code sessions from frustrating ones: give Claude a way to check its own work, and ask to see the result. For a page, that means a screenshot at phone and desktop width compared against the design. For copy, it means the text printed back with its character count. Anthropic's own guidance is the same — give Claude a check it can run, and prefer a screenshot comparison for anything visual. "It should work now" is not evidence. A screenshot is.</p>
+
+      <h2>Seeing the page</h2>
+      <p>Ask Claude to start a preview. It runs a small server and opens your page in the app's <strong>Browser</strong> pane (<kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>), where it can take screenshots, click through the page and check its own changes. With "Auto-verify changes" on, which is the default, Claude looks at the result after every edit.</p>
+      <p>You can also open the address it gives you, such as <code>http://localhost:3000</code>, in your usual browser. The first time, Claude may save the preview settings in a file called <code>.claude/launch.json</code>; that is normal, and it means the next preview starts with one request. If Claude says it needs Node.js to run the preview, let it point you to the installer at nodejs.org; it is a one-time install, like any app.</p>
 
       <div class="prompt">
         <span class="label">Prompt: plan first</span>
@@ -71,17 +76,14 @@
         <p>Before building the pricing page, interview me — one question at a time — until you have enough to write a one-page brief. Then show me the brief and wait for my approval.</p>
       </div>
 
-      <h2>Seeing the page</h2>
-      <p>Ask Claude to start a local preview; it will run a small server and give you an address like <code>http://localhost:3000</code> to open in your browser. Keep the browser and VS Code side by side. When you change something, reload. For plain HTML sites the VS Code "Live Preview" extension works too, and reloads automatically.</p>
-
       <section class="exercise">
         <h2>Exercise: from canvas to page</h2>
         <ol>
-          <li>Create a folder <code>studio-site</code>, open it in VS Code, start Claude Code and run <code>/init</code>.</li>
-          <li>Export your Module 2 one-pager as an image and save it in the folder. Write a <code>brief.md</code> of ten lines: goal, audience, sections, call to action, tone.</li>
-          <li>Switch to plan mode and run the plan-first prompt. Answer its questions. Read the plan: does the file structure make sense to you? If not, say so.</li>
-          <li>Approve, then run the build-and-verify prompt. Open the preview. Compare it with the screenshot yourself before reading Claude's list of differences.</li>
-          <li>Ask for three changes you would give a junior designer. Watch each diff in Source Control before approving. Commit when it is right.</li>
+          <li>Create a folder <code>studio-site</code>. Start a new Code session, choose the folder, set the mode to Manual, and type <code>/init</code>.</li>
+          <li>Export your Module 2 one-pager as an image and save it in the folder. Tell Claude ten lines of brief — goal, audience, sections, call to action, tone — and ask it to save them as <code>brief.md</code>.</li>
+          <li>Switch the mode selector to Plan. Paste the one-pager image into the prompt box (or type <code>@</code> and its file name), then run the plan-first prompt. Answer its questions. Read the plan: does the file structure make sense to you? If not, say so.</li>
+          <li>Approve, then run the build-and-verify prompt. Look at the page in the Browser pane. Compare it with the screenshot yourself before reading Claude's list of differences.</li>
+          <li>Ask for three changes you would give a junior designer. Read each diff in the Changes panel before approving; comment on a line if something is off. Commit when it is right.</li>
         </ol>
       </section>
 
@@ -95,7 +97,7 @@
       </section>
 
       <nav class="pager" id="pager" aria-label="Previous and next"></nav>
-      <p class="verified">Last verified 20 October 2026 against the Claude Code best-practices documentation. Default permission behaviour has changed between versions; check what your installation does before relying on it.</p>
+      <p class="verified">Last verified 20 October 2026 against the Claude Code best-practices and desktop documentation. Default permission behaviour has changed between versions; check what your installation does before relying on it.</p>
     </article>
   </main>
 </div>

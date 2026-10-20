@@ -6,7 +6,7 @@ CLAUDE.md, DESIGN.md, UX.md, the brand-voice skill and the ux-reviewer
 subagent consistent with what the module pages say.
 
 # Commands
-- Preview: `npx serve docs` (or VS Code Live Preview on docs/index.html)
+- Preview: `npx serve docs` (or ask Claude to open docs/index.html in the desktop app's Browser pane)
 - Check:   `npx html-validate "docs/**/*.html"`
 
 # Design rules

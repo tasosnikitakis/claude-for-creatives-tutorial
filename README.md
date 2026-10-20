@@ -34,7 +34,7 @@ Any static server works. Two options:
 npx serve docs
 ```
 
-or install the "Live Preview" extension in VS Code and open `docs/index.html`.
+or, in a Code session in the Claude desktop app, ask Claude to open `docs/index.html` in the Browser pane.
 
 The pages also open directly from the file system (double-click `docs/index.html`); only the Copy buttons need a server.
 

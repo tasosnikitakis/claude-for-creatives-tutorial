@@ -61,7 +61,7 @@ a:hover { text-decoration-thickness: 2px; }
 /* ---------- Layout ---------- */
 .site {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   min-height: 100vh;
 }
 @media (min-width: 900px) {

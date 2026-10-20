@@ -31,10 +31,13 @@ Give me three directions for the hero of this landing page — editorial, produc
 **One-pager**
 Design a one-page overview of [service]. Goal: a prospective client understands what we do and books a call. Audience: marketing managers who have never heard of us. Content: [headline, three benefits, one proof point, one call to action, contact details]. Layout: single column, readable at phone width, one accent colour. Art direction: [two sentences]. When you are done, list anything you invented that I should replace with real content.
 
-## Module 3 — Tooling
+## Module 3 — The desktop app
+
+**Connect to GitHub**
+I am a designer and this is my first Code session. Explain every command in one plain sentence before you run it. First, check that Git and the GitHub CLI are installed. Then sign me in to GitHub without asking me any questions in a terminal: run gh auth login --web --hostname github.com --git-protocol https, tell me the one-time code and the web address to open, and wait while I approve it in my browser.
 
 **First repository**
-I am a designer and new to the terminal. Explain every command you run in one plain sentence before you run it. Then: initialise a Git repository in this folder, create a README.md that says what this project is, make the first commit with a clear message, create a private GitHub repository called hello-studio, and push to it. Tell me the repository's web address when you are done.
+Now, in this folder: start a Git repository, create a README.md that says what this project is, make the first commit with a clear message, create a private GitHub repository called hello-studio, and push to it. Tell me the repository's web address when you are done.
 
 **Understanding what happened**
 Show me the commit history as a short list. Then explain what a branch is using this repository as the example, and create one called try-new-headline. Do not change any files yet.

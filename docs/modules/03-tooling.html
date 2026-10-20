@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Module 3: Developer tooling without fear — Claude for creatives</title>
+<title>Module 3: Your studio in the desktop app — Claude for creatives</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -15,21 +15,29 @@
   <main>
     <article class="content">
       <p class="kicker">Module 3 of 9</p>
-      <h1>Developer tooling without fear</h1>
-      <p class="lede">VS Code, the terminal and Git, reduced to what a designer directing Claude Code actually needs. Claude will type most of it; you need to know what it means.</p>
+      <h1>Your studio in the desktop app</h1>
+      <p class="lede">Claude Code runs inside the Claude desktop app you already use, in its Code tab. No code editor, no terminal window. This module sets it up and teaches the handful of Git words you need to direct it.</p>
 
       <section class="objectives">
         <h2>By the end of this module you can</h2>
         <ul>
-          <li>Install VS Code, the Claude Code command-line tool and the Claude Code extension.</li>
+          <li>Open a Code session in the Claude desktop app on a folder of your own.</li>
           <li>Explain a repository, a commit, a push, a branch and a pull request in one sentence each.</li>
-          <li>Create a GitHub repository and get your first commit into it, with Claude doing the typing.</li>
+          <li>Get your first project onto GitHub, with Claude doing all the typing.</li>
         </ul>
       </section>
 
-      <h2>Three tools, one picture</h2>
-      <p><strong>VS Code</strong> is a text editor that shows a project as a folder of files. You will mostly use it to read what Claude wrote and to see the preview. <strong>The terminal</strong> is a text box where you type commands; it lives inside VS Code and Claude Code uses it on your behalf. <strong>Git</strong> keeps the history of the project — every saved snapshot, who made it, and why — and <strong>GitHub</strong> is where that history is stored online and published from.</p>
-      <p>If you have used version history in Figma or Google Docs, you already understand Git's purpose. The vocabulary is the only new part:</p>
+      <h2>One app, two kinds of conversation</h2>
+      <p>The Claude desktop app has a <strong>Chat</strong> side, where you have worked in Modules 0–2, and a <strong>Code</strong> tab. A conversation in the Code tab is called a <strong>session</strong>, and each one is attached to a folder on your computer. In a session Claude can read and change the files in that folder, run commands, preview your page, and save versions to GitHub. You watch and approve; Claude does the typing.</p>
+      <p>Three panels matter, and you will meet them all in the exercise:</p>
+      <ul>
+        <li><strong>The prompt box</strong> — where you brief Claude. Under it are the folder control and the mode selector.</li>
+        <li><strong>Changes</strong> — every edit Claude has made, line by line, with before and after. You can comment on any line, like marking up a proof.</li>
+        <li><strong>Browser</strong> — a preview of your page inside the app. Claude opens it, takes screenshots and checks its own work there. Open it yourself with <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>.</li>
+      </ul>
+
+      <h2>The Git words, and nothing more</h2>
+      <p><strong>Git</strong> keeps the history of a project — every saved snapshot, who made it, and why. <strong>GitHub</strong> is where that history is stored online and where your site is published from. If you have used version history in Figma or Google Docs, you already understand the purpose. The vocabulary is the only new part:</p>
       <div class="table-wrap">
       <table>
         <thead><tr><th>Word</th><th>Meaning</th><th>Design-world equivalent</th></tr></thead>
@@ -39,35 +47,35 @@
           <tr><td>Push</td><td>Upload your commits to GitHub</td><td>Syncing to the shared drive</td></tr>
           <tr><td>Branch</td><td>A parallel copy for trying something without touching the main version</td><td>Duplicating a page to explore a direction</td></tr>
           <tr><td>Pull request</td><td>A proposal to merge a branch into the main version, with a place to review it</td><td>Presenting a direction for approval</td></tr>
-          <tr><td>Diff</td><td>The exact before-and-after of a change</td><td>Comparing two versions side by side</td></tr>
+          <tr><td>Diff</td><td>The exact before-and-after of a change; what the Changes panel shows</td><td>Comparing two versions side by side</td></tr>
         </tbody>
       </table>
       </div>
 
-      <h2>Installing everything</h2>
+      <h2>Setting up</h2>
       <ol>
         <li>Confirm your Claude plan is Pro or higher. Claude Code is not available on the Free plan.</li>
-        <li>Install VS Code from <a href="https://code.visualstudio.com">code.visualstudio.com</a>.</li>
-        <li>Install the Claude Code command-line tool. Open the Terminal app (macOS) or PowerShell (Windows) and paste one line:
-          <pre><code># macOS / Linux
-curl -fsSL https://claude.ai/install.sh | bash
-
-# Windows (PowerShell)
-irm https://claude.ai/install.ps1 | iex</code></pre>
-          No other software is needed; the installer brings its own.</li>
-        <li>In VS Code open the Extensions panel (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>), search for "Claude Code" by Anthropic, and install it. The extension gives you a Claude panel beside your files.</li>
-        <li>Create a folder on your computer called <code>hello-studio</code>. In VS Code choose File → Open Folder, open it, and click "Trust" when asked.</li>
-        <li>Click the Claude icon in the sidebar and sign in with your Claude account.</li>
-        <li>Create a free account at <a href="https://github.com">github.com</a>. Then install the GitHub command-line tool (<code>gh</code>) from <a href="https://cli.github.com">cli.github.com</a> and run <code>gh auth login</code> once in the terminal, following the prompts. This lets Claude create repositories and publish for you.</li>
+        <li>Install or update the Claude desktop app from <a href="https://claude.com/download">claude.com/download</a> and sign in. Click the <strong>Code</strong> tab.</li>
+        <li>Create a folder on your computer called <code>hello-studio</code>, somewhere you will find it again (Documents is fine).</li>
+        <li>In the Code tab, before you type anything, click the folder control in the row under the prompt box and choose <code>hello-studio</code>.</li>
+        <li>Find the mode selector next to it and set it to <strong>Manual</strong>. Claude will ask before every edit and every command. You will relax this later, once you trust a workflow.</li>
+        <li>Create a free account at <a href="https://github.com">github.com</a>.</li>
+        <li>Install the GitHub CLI from <a href="https://cli.github.com">cli.github.com</a> — it is an ordinary installer, like any app. It is the piece that lets Claude create repositories and publish for you. You will never open it yourself.</li>
+        <li>If the app tells you it needs Git, follow the link it gives. On Windows that means installing Git for Windows from <a href="https://git-scm.com">git-scm.com</a>; on a Mac, accept the offer to install the developer tools.</li>
       </ol>
-      <div class="caution"><p>Installation steps change. If something here does not match what you see, the <a href="https://code.claude.com/docs/en/vs-code">official VS Code guide</a> is current; this page is not guaranteed to be.</p></div>
+      <div class="caution"><p>The desktop app changes often. If a button here does not match what you see, the <a href="https://code.claude.com/docs/en/desktop">official desktop guide</a> is current; this page is not guaranteed to be.</p></div>
 
-      <h2>Let Claude teach you the terminal</h2>
-      <p>You do not have to memorise commands. You have to be able to read them. The fastest way to learn is to ask Claude Code to narrate everything it does, in plain language, as it does it.</p>
+      <h2>Let Claude narrate</h2>
+      <p>You do not have to learn commands. You have to be able to follow what is happening. In Manual mode Claude shows you every command before it runs; ask it to explain each one in plain language, and you will pick up the shape of things quickly.</p>
+
+      <div class="prompt">
+        <span class="label">Prompt: connect to GitHub</span>
+        <p>I am a designer and this is my first Code session. Explain every command in one plain sentence before you run it. First, check that Git and the GitHub CLI are installed. Then sign me in to GitHub without asking me any questions in a terminal: run gh auth login --web --hostname github.com --git-protocol https, tell me the one-time code and the web address to open, and wait while I approve it in my browser.</p>
+      </div>
 
       <div class="prompt">
         <span class="label">Prompt: first repository</span>
-        <p>I am a designer and new to the terminal. Explain every command you run in one plain sentence before you run it. Then: initialise a Git repository in this folder, create a README.md that says what this project is, make the first commit with a clear message, create a private GitHub repository called hello-studio, and push to it. Tell me the repository's web address when you are done.</p>
+        <p>Now, in this folder: start a Git repository, create a README.md that says what this project is, make the first commit with a clear message, create a private GitHub repository called hello-studio, and push to it. Tell me the repository's web address when you are done.</p>
       </div>
 
       <div class="prompt">
@@ -78,24 +86,26 @@ irm https://claude.ai/install.ps1 | iex</code></pre>
       <section class="exercise">
         <h2>Exercise: hello studio</h2>
         <ol>
-          <li>Complete the installation list. Take your time; this is the only module where the obstacles are mechanical rather than creative.</li>
-          <li>Run the first-repository prompt. Read every narrated sentence. When one does not make sense, ask Claude to rephrase it — in the same session, before moving on.</li>
-          <li>Open your repository on github.com and find the README. You have published a file to the internet via the terminal. That is the whole mechanism; everything later is the same mechanism with better content.</li>
-          <li>Ask Claude to change one word in the README, commit and push again. Watch the diff in VS Code's Source Control panel before you approve.</li>
+          <li>Complete the setup list. Take your time; this is the only module where the obstacles are mechanical rather than creative.</li>
+          <li>Run the connect-to-GitHub prompt. Claude gives you a short code and a web address (github.com/login/device). Open the address in your browser if it does not open by itself, enter the code and approve. If Claude ever says you need to type something in a terminal, reply "do it for me another way" — there almost always is one. Approve each command Claude asks to run, reading its explanation first.</li>
+          <li>Run the first-repository prompt. When a sentence does not make sense, ask Claude to rephrase it before you approve the next step.</li>
+          <li>Open your repository on github.com and find the README. Your file is now stored online, visible only to you. Publishing a site later uses the same mechanism with better content.</li>
+          <li>Ask Claude to change one word in the README. Open <strong>Changes</strong> and look at the diff before you say "commit and push". Leave a comment on the line to see how it works.</li>
+          <li>Run the understanding-what-happened prompt. When you have read its explanation, ask Claude to switch back to the main branch.</li>
         </ol>
       </section>
 
       <section class="checkpoint">
         <h2>Checkpoint</h2>
         <ul>
-          <li>VS Code opens your folder, the Claude panel is signed in, and <code>claude</code> runs in the integrated terminal.</li>
+          <li>A Code session opens on your folder, in Manual mode, and Claude can see the files in it.</li>
           <li>A private repository exists on GitHub with at least two commits.</li>
-          <li>You can explain commit, push and branch without looking at the table.</li>
+          <li>You have read a diff in the Changes panel and can explain commit, push and branch without looking at the table.</li>
         </ul>
       </section>
 
       <nav class="pager" id="pager" aria-label="Previous and next"></nav>
-      <p class="verified">Last verified 20 October 2026 against the Claude Code documentation.</p>
+      <p class="verified">Last verified 20 October 2026 against the Claude Code desktop documentation.</p>
     </article>
   </main>
 </div>

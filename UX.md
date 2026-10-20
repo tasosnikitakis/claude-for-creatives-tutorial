@@ -6,8 +6,9 @@ with CLAUDE.md (the brief) and DESIGN.md (the tokens).
 ## Who this is for
 
 One learner: an experienced creative director and content writer with UI/UX
-background, strong at prompting AI tools, new to VS Code, the terminal and
-Git. She reads on a laptop while working, and on a phone when reviewing.
+background, strong at prompting AI tools, new to developer tooling and Git.
+She works only in the Claude desktop app (Chat and the Code tab), never in a
+code editor or terminal. She reads on a laptop while working, and on a phone when reviewing.
 She does not need the craft explained; she needs the tooling explained.
 
 ## What she is trying to do
