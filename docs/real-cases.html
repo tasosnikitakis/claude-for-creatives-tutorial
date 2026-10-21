@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real-world cases — Claude for creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="./">
+<div class="site">
+  <nav class="site-nav" id="site-nav" aria-label="Site"><noscript><a class="brand" href="index.html">Claude for creatives</a></noscript></nav>
+  <main>
+    <article class="content">
+      <p class="kicker">Real-world cases</p>
+      <h1>How real brands used Claude</h1>
+      <p class="lede">Three documented cases — two brand redesigns and one content system — and two short quotes from product teams. Each case is mapped to the modules it illustrates; the first also reports in detail what went wrong.</p>
+
+      <section class="objectives">
+        <h2>Read this page to</h2>
+        <ul>
+          <li>See the method from the modules used on real brands, by real people.</li>
+          <li>Tell a well-evidenced case from a promotional one.</li>
+          <li>Take one concrete lesson from each case into your own work.</li>
+        </ul>
+      </section>
+
+      <p><strong>What the research found.</strong> We found no detailed, public account of a large brand's full rebrand run with Claude, as of October 2026. Agencies say they are loading client brands into Claude Design but have not published named results. The cases below are the best documented: two creators who rebuilt their own brands, and Anthropic's own marketing team. Everything here is self-reported by the people involved; none of it has been independently measured.</p>
+
+      <hr>
+
+      <h2>Case 1 — 56kode: a blog that outgrew its identity</h2>
+      <p class="small">Frontend developer, own brand · Claude app → Claude Design → Claude Code · self-reported · published 27 August 2026</p>
+
+      <h3>The situation</h3>
+      <p>56kode was a frontend and React blog running on a stock theme with little personality. Its content had moved towards building with AI, and the look no longer matched what it was about. The author wanted a distinctive identity, a fresh design system and a rebuilt site — explicitly not another AI-looking page: "AI tends to produce sites that all look alike, and that is exactly what I wanted to avoid."</p>
+
+      <h3>How it was done</h3>
+      <ol>
+        <li><strong>Brief first, in a plain chat.</strong> Claude analysed the existing site and helped write a brief. The site was deliberately <em>not</em> shown to Claude Design yet, so it would not lean on the old interface.</li>
+        <li><strong>Directions.</strong> Three home-page directions in Claude Design; one refined; then two more requested to test the choice.</li>
+        <li><strong>Structure.</strong> Only once the identity was settled did Claude Design see the real site, to fit the structure to real content.</li>
+        <li><strong>System.</strong> A design system — dark only, a phosphor-green accent, IBM Plex, no rounded corners, a dial-up-modem theme — then page-by-page mockups with responsive checks.</li>
+        <li><strong>Build.</strong> Claude Code copied the mockup into a <code>design-reference/</code> folder as a visual reference, not production code, and rebuilt in a fixed order: tokens, shared components, layouts, pages. No hard-coded values.</li>
+        <li><strong>Audit.</strong> Eight parallel review passes found 22 problems before launch.</li>
+      </ol>
+
+      <h3>What went wrong</h3>
+      <ul>
+        <li>A menu meant only for phones stayed visible on desktop; article pages scrolled sideways by 197px.</li>
+        <li>The audits found a broken sharing image on every page, a mobile menu that turned into a black screen, previous/next links the wrong way round, and far too much image weight.</li>
+        <li>Claude recommended a hosting security setting without checking the certificate first. The site went down until it was corrected.</li>
+      </ul>
+
+      <h3>Outcome</h3>
+      <p>By the author's account: about two hours of visual research, an afternoon of integration, then several two-to-three-hour sessions of audits and fixes. Images were cut from 4.98 MB to 1.17 MB, and an article page's first load from 1,294 KB to 62 KB.</p>
+
+      <h3>What it teaches</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Lesson</th><th>Module</th></tr></thead>
+        <tbody>
+          <tr><td>Write the brief before generating anything; keep the old design out of the room while exploring</td><td><a href="modules/02-claude-design.html">Module 2</a></td></tr>
+          <tr><td>Exploration is cheap now: ask for more directions than you think you need, then test your choice against fresh ones</td><td><a href="modules/02-claude-design.html">Module 2</a></td></tr>
+          <tr><td>Tokens first, components second, pages last; no hard-coded values</td><td><a href="modules/05-context-engineering.html">Module 5</a></td></tr>
+          <tr><td>Review passes catch what the build misses — 22 findings on a site that looked finished</td><td><a href="modules/08-workflows-publishing.html">Module 8</a></td></tr>
+          <tr><td>The author's rule after the outage: "a recommendation that touches production gets measured before it gets stated." Never approve a change to a live setting on Claude's word alone</td><td><a href="modules/04-claude-code.html">Module 4</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="small">Source: <a href="https://www.56kode.com/posts/redesign-blog-claude-design-claude-code/">The story of a redesign with Claude Design and Claude Code</a>, 56kode.</p>
+
+      <hr>
+
+      <h2>Case 2 — Ash Ambirge: a writer rebuilds her business site without a developer</h2>
+      <p class="small">Author and online educator, own brand · Claude Design → Claude Code · self-reported · published 1 September 2026</p>
+
+      <h3>The situation</h3>
+      <p>Ash Ambirge, an author who runs an online business and a newsletter, had about seventeen years of writing spread across WordPress, Substack and an email platform, and a site that no longer fitted the business. She is not a developer, which makes this the closest of the three cases to the learner this tutorial is written for.</p>
+
+      <h3>How it was done</h3>
+      <ol>
+        <li>The new look — a bright chartreuse accent, a large sign-up area, a sticky sidebar, a scrolling marquee of world times — was designed in Claude Design.</li>
+        <li>She described the features and layout to Claude Code in plain language, and it built a custom theme for her publishing platform.</li>
+        <li>Seventeen years of posts were migrated into one archive with category pages, back to 2009.</li>
+        <li>A class catalogue and a sales page per class were added, each with a sticky enrolment sidebar.</li>
+        <li>A matching email template and a social-media banner were made from the same system.</li>
+      </ol>
+
+      <h3>Outcome</h3>
+      <p>A rebuilt, rebranded site, "in a weekend" according to the title and "a few days" according to the text, with no developer, by her account. No traffic or sales figures are given.</p>
+
+      <h3>Read it critically</h3>
+      <p>The essay is promotional: it sells a course on using Claude in business and contains affiliate links. It describes the result, not the review process, and mentions no problems. Treat it as evidence of what a non-developer can direct, not of how well the result holds up.</p>
+
+      <h3>What it teaches</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Lesson</th><th>Module</th></tr></thead>
+        <tbody>
+          <tr><td>A creative director's skill — knowing exactly what you want and saying it plainly — is the main input</td><td><a href="modules/00-orientation.html">Module 0</a></td></tr>
+          <tr><td>One design system can serve the site, the email template and the social banner</td><td><a href="modules/05-context-engineering.html">Module 5</a></td></tr>
+          <tr><td>Content migration is part of a rebrand, and a job you can direct Claude Code to do when you specify categories and structure</td><td><a href="modules/06-content-systems.html">Module 6</a></td></tr>
+          <tr><td>What the essay leaves out — review, accessibility, fixes — is exactly what the rubric is for</td><td><a href="modules/09-capstone.html">Module 9</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="small">Source: <a href="https://www.ashambirge.com/how-to-use-claude-to-run-your-business-i-rebuilt-my-entire-website-with-it-in-a-weekend/">How to use Claude Code to redesign your entire website</a>, Ash Ambirge.</p>
+
+      <hr>
+
+      <h2>Case 3 — Anthropic's marketing team: brand voice as skills</h2>
+      <p class="small">In-house marketing team · Claude Code, custom commands, skills, Figma · published 26 January 2026</p>
+
+      <h3>The situation</h3>
+      <p>Anthropic's own marketing team needed to produce ad copy and creative variations at scale without drifting off-brand. The story centres on Austin Lau, a growth marketer who had never written code before using Claude Code.</p>
+
+      <h3>How it was done</h3>
+      <ul>
+        <li><strong>Brand voice as skills.</strong> Skills cover the brand's tone and voice, product accuracy and ad best practice. The example copy inside them was written with the product marketing and copywriting teams — human writers set the standard, the skill applies it.</li>
+        <li><strong>A command for a repeated job.</strong> Typing <code>/rsa</code> makes Claude ask for campaign data, existing copy and keywords, then produce a file of 15 headlines and 4 descriptions per ad. Every file is reviewed by a person before upload.</li>
+        <li><strong>A Figma plugin built with Claude Code.</strong> It generates ad variants across every aspect ratio in one click from headlines pasted from a spreadsheet. It took under an hour to build.</li>
+      </ul>
+
+      <h3>Outcome (company-reported)</h3>
+      <p>Ad creation went from about 30 minutes to 30 seconds per ad; the plugin saves nearly 30 minutes per large creative batch. Other teams report case studies drafted in 30 minutes instead of two and a half hours, and 5–10 hours saved per product launch.</p>
+
+      <h3>What it teaches</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Lesson</th><th>Module</th></tr></thead>
+        <tbody>
+          <tr><td>Write the brand voice once, with real writers' examples, and package it as a skill</td><td><a href="modules/01-claude-app-projects.html">Module 1</a>, <a href="modules/06-content-systems.html">Module 6</a></td></tr>
+          <tr><td>Turn a job you repeat every week into a command with fixed inputs and a fixed output</td><td><a href="modules/08-workflows-publishing.html">Module 8</a></td></tr>
+          <tr><td>Keep a person between generation and publication, every time</td><td><a href="modules/09-capstone.html">Module 9</a></td></tr>
+          <tr><td>Start with a small repetitive task — his first project was a calculator — and grow from there</td><td><a href="modules/03-tooling.html">Module 3</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="small">Source: <a href="https://claude.com/blog/how-anthropic-uses-claude-marketing">How Anthropic uses Claude in marketing</a>, Claude blog. Anthropic is reporting on itself.</p>
+
+      <hr>
+
+      <h2>Two short reports from product teams</h2>
+      <p>At Claude Design's launch in April 2026, Anthropic quoted two product teams. They are brief and promotional, but they point the same way.</p>
+      <ul>
+        <li><strong>Brilliant</strong> (learning platform). A senior product designer said interactive prototypes had always been painful to build, and that "our most complex pages, which took 20+ prompts to recreate in other tools, only required 2 prompts in Claude Design."</li>
+        <li><strong>Datadog</strong> (software). A product manager said prototypes stay true to the brand guidelines and that a week of back-and-forth now happens in one conversation: "We've gone from a rough idea to a working prototype before anyone leaves the room."</li>
+      </ul>
+      <p class="small">Source: <a href="https://www.anthropic.com/news/claude-design-anthropic-labs">Introducing Claude Design by Anthropic Labs</a>, Anthropic, 17 April 2026. Launch quotes, not independent studies.</p>
+
+      <hr>
+
+      <h2>How to read any case study</h2>
+      <p>You will meet many more of these, most of them selling something. Four questions sort the useful from the promotional:</p>
+      <ol>
+        <li><strong>Who wrote it, and what are they selling?</strong> A course, a product, a launch.</li>
+        <li><strong>Does it say what went wrong?</strong> Case 1 does, at length, which is why it is the most useful.</li>
+        <li><strong>Who reviewed the output, and how?</strong> If nobody did, the result is untested, however good it looks.</li>
+        <li><strong>Are the numbers measured or estimated?</strong> And measured against what?</li>
+      </ol>
+
+      <div class="prompt">
+        <span class="label">Prompt: analyse a case for your own practice</span>
+        <p>Here is a case study about using Claude in a brand or website project: [paste the text]. Summarise the situation, the workflow step by step, and the outcome. Then answer: who wrote it and what are they selling; what went wrong, and what is missing from the account; who reviewed the output; and whether the numbers are measured or estimated. Finish with the one step from this workflow I should adopt in my studio, and the one I should not.</p>
+      </div>
+
+      <section class="exercise">
+        <h2>Exercise</h2>
+        <ol>
+          <li>Read Case 1 in full at its source. List every problem the audit found, and next to each, write which row of the <a href="templates.html">review rubric</a> would have caught it.</li>
+          <li>Run the prompt above on Case 2. Compare Claude's answer to the four questions with your own.</li>
+          <li>From Case 3, pick one job you repeat every week — proposals, social captions, client reports — and write down its inputs and its output. That is the brief for your first command in <a href="modules/08-workflows-publishing.html">Module 8</a>.</li>
+        </ol>
+      </section>
+
+      <p class="verified">Last verified 21 October 2026. Figures and quotes are as reported by each source; this tutorial has not verified them independently.</p>
+    </article>
+  </main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
